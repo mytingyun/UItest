@@ -10,8 +10,7 @@ driver = webdriver.Chrome()
 oneuser = AloneChat(driver,user1,passwd1,url,user2)
 #oneuser.sign_in()
 oneuser.login()
-
-#oneuser.addfirend()
+oneuser.addfirend()
 #oneuser.logout()
 
 
@@ -20,14 +19,15 @@ options = webdriver.ChromeOptions()
 options.add_argument('disable-infobars')
 browser = webdriver.Chrome(chrome_options=options)
 twouser = AloneChat(browser,user2,passwd2,url,user1)
-
 twouser.login()
+twouser.agreefriend()
 twouser.sendMSfirend()
 twouser.sendfile()
-#twouser.sendimage()
+twouser.sendimage()
+twouser.logout()
+
 '''
 twouser.sign_in()
-twouser.agreefriend()
 twouser.refresh()
 time.sleep(2)
 
@@ -44,8 +44,7 @@ oneuser.sendfile()
 '''
 time.sleep(2)
 oneuser.receiveMess()
-
-#oneuser.cleanchat()
+oneuser.cleanchat()
 
 
 
