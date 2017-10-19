@@ -24,6 +24,7 @@ class AloneChat:
             self.driver.find_element_by_xpath("//div[@class='ant-form-item-control ']/input").send_keys(self.passwd)
             self.driver.find_element_by_xpath("//div[@class='ant-form-item-control ']/input").send_keys(self.user)
             self.driver.find_element_by_xpath("//div[@class='ant-row']/button").click()
+            print u"此次注册的用户名是：%s, 密码是：%s, 昵称是：%s" %(self.user,self.passwd,self.user)
             time.sleep(1)
             return True
         except NoSuchElementException,error:
@@ -37,6 +38,7 @@ class AloneChat:
             self.driver.find_element_by_id("password").send_keys(self.passwd)
             self.driver.find_element_by_xpath("//div[@class='ant-row']/button").click()
             time.sleep(2)
+            print u"此次登陆的用户名为：", self.user
             return True
         except NoSuchElementException,error:
             print "login Failed",error
@@ -61,6 +63,7 @@ class AloneChat:
             time.sleep(1)
             self.driver.find_element_by_xpath("//div[@class='ant-col-20']/input").send_keys(self.friend)
             self.driver.find_element_by_xpath("//div[@class='ant-col-4']/button").click()
+            print u"添加的好友是：", self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" %funname, error
@@ -71,6 +74,7 @@ class AloneChat:
         try:
             time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='ant-col-10']/button[2]").click()
+            print u"拒绝来自%s的添加好友申请" % self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -81,6 +85,7 @@ class AloneChat:
         try:
             time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='ant-col-10']/button").click()
+            print u"同意来自%s的添加好友申请" % self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -94,6 +99,7 @@ class AloneChat:
             time.sleep(1)
             self.driver.find_element_by_class_name("ant-input").send_keys(message)
             self.driver.find_element_by_xpath("//span[@class='ant-input-group-addon']/i").click()
+            print u"给好友%s发送文本消息，内容为%s" %(self.friend, message)
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -104,16 +110,17 @@ class AloneChat:
             self.driver.refresh()
         except Exception as e:
             print ("Exception found", format(e))
-    def receiveMess(self):
+    def receiveMess(self,message_num):
+        time.sleep(2)
         try:
             if self.driver.find_element_by_xpath("//p[@class='current']"):
                 data = self.driver.find_element_by_xpath("//p[@class='current']").text
-                if int(data) < receive_message_num:
-                    print "Failed, Receive message is not complete, expect num is: %s ,now num is: %s" % (receive_message_num,str(data))
+                if int(data) != message_num:
+                    print u"Failed, Receive message is not complete, expect num is: %s ,now num is: %s" % (str(message_num),str(data))
                     self.screenshot("receive.png")
                     return False
                 else:
-                    print "Pass, New message is exist，num is: %s" % str(data)
+                    print u"Pass, New message is exist，num is: %s" % str(data)
                     return True
         except NoSuchElementException,e:
             print "No message received，verify failed",e
@@ -125,6 +132,7 @@ class AloneChat:
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             self.driver.find_element_by_xpath("//li[@class='ant-dropdown-menu-item']/i").click()
+            print u"将好友%s加入到黑名单" % self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -138,6 +146,7 @@ class AloneChat:
             time.sleep(1)
             self.driver.find_element_by_xpath("//i[@class='fr iconfont icon-circle-minus']").click()
             self.driver.find_element_by_xpath("//span[@class='ant-modal-close-x']").click()
+            print u"将好友%s从黑名单中移除" % self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -149,6 +158,7 @@ class AloneChat:
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             self.driver.find_element_by_xpath("//i[@class='iconfont icon-trash']").click()
+            print u"将好友%s删除" % self.friend
             return True
         except NoSuchElementException, error:
             print "%s Failed" % funname, error
@@ -160,6 +170,7 @@ class AloneChat:
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             time.sleep(1)
             self.driver.find_element_by_xpath("//i[@class='icon iconfont icon-trash']").click()
+            print u"清空聊天历史记录"
             return True
         except NoSuchElementException, error:
             print "%s Failed, clean button is not found" % funname, error
@@ -172,6 +183,7 @@ class AloneChat:
             time.sleep(1)
             upimage = self.driver.find_element_by_id("uploadImage")
             upimage.send_keys("%s/123.png" %os.getcwd())
+            print u"给好友%s发送图片消息" % (self.friend)
             return True
         except NoSuchElementException, error:
             print "%s Failed, clean button is not found" % funname, error
@@ -184,6 +196,7 @@ class AloneChat:
             time.sleep(1)
             upfile = self.driver.find_element_by_id("uploadFile")
             upfile.send_keys("%s/123.png" % os.getcwd())
+            print u"给好友%s发送文件消息" % (self.friend)
             return True
         except NoSuchElementException, error:
             print "%s Failed, clean button is not found" % funname, error
@@ -191,6 +204,14 @@ class AloneChat:
             return False
     def screenshot(self,file):
         self.driver.get_screenshot_as_file("%s/errorpng/%s" %(os.getcwd(),file))
+    def closewindow(self):
+        try:
+            if self.driver.find_element_by_xpath("//div[@class='ant-modal-content']"):
+                self.driver.find_element_by_xpath("//div[@class='ant-modal-content']/button/span").click()
+            else:
+                pass
+        except:
+            pass
     def quitBrowser(self):
         self.driver.quit()
 

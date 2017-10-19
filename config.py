@@ -6,4 +6,3 @@ passwd1 = "1"
 user2 = "auto02"
 passwd2 = "1"
 message = "this is test easemob"
-receive_message_num = 3
