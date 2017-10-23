@@ -28,7 +28,7 @@ class AloneChat:
             time.sleep(1)
             return True
         except NoSuchElementException,error:
-            print "Sign in Failed",error
+            print u"Sign in Failed",error
             self.screenshot("sing_in.png")
             return False
     def login(self):
@@ -41,7 +41,7 @@ class AloneChat:
             print u"此次登陆的用户名为：", self.user
             return True
         except NoSuchElementException,error:
-            print "login Failed",error
+            print u"login Failed",error
             self.screenshot("login.png")
             return False
     def logout(self):
@@ -50,7 +50,7 @@ class AloneChat:
             self.driver.find_element_by_xpath("//i[@class='anticon anticon-logout']").click()
             return True
         except NoSuchElementException, error:
-            print "logout Failed", error
+            print u"logout Failed", error
             self.screenshot("logout.png")
             return False
     def addfirend(self):
@@ -66,7 +66,7 @@ class AloneChat:
             print u"添加的好友是：", self.friend
             return True
         except NoSuchElementException, error:
-            print "%s Failed" %funname, error
+            print u"%s Failed" %funname, error
             self.screenshot("%s.png" %funname)
             return False
     def refusefriend(self):
@@ -77,7 +77,7 @@ class AloneChat:
             print u"拒绝来自%s的添加好友申请" % self.friend
             return True
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def agreefriend(self):
@@ -88,7 +88,7 @@ class AloneChat:
             print u"同意来自%s的添加好友申请" % self.friend
             return True
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def sendMSfirend(self):
@@ -102,14 +102,14 @@ class AloneChat:
             print u"给好友%s发送文本消息，内容为%s" %(self.friend, message)
             return True
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def refresh(self):
         try:
             self.driver.refresh()
         except Exception as e:
-            print ("Exception found", format(e))
+            print (u"Exception found", format(e))
     def receiveMess(self,message_num):
         time.sleep(2)
         try:
@@ -123,7 +123,7 @@ class AloneChat:
                     print u"Pass, New message is exist，num is: %s" % str(data)
                     return True
         except NoSuchElementException,e:
-            print "No message received，verify failed",e
+            print u"No message received，verify failed",e
             return False
 
     def addtoblack(self):
@@ -132,10 +132,19 @@ class AloneChat:
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             self.driver.find_element_by_xpath("//li[@class='ant-dropdown-menu-item']/i").click()
-            print u"将好友%s加入到黑名单" % self.friend
-            return True
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='fl']/i").click()
+            self.driver.find_element_by_xpath("//li[@class='ant-dropdown-menu-item']/span/i").click()
+            time.sleep(2)
+            blackuser = self.driver.find_element_by_xpath("//div[@class='force-overflow']/p").text
+            if str(blackuser) == self.friend:
+                print u"将好友%s成功加入到黑名单" % self.friend
+                return True
+            else:
+                print u"好友%s加入到黑名单失败" % self.friend
+                return False
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def removeblack(self):
@@ -149,7 +158,7 @@ class AloneChat:
             print u"将好友%s从黑名单中移除" % self.friend
             return True
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def delfriend(self):
@@ -161,7 +170,7 @@ class AloneChat:
             print u"将好友%s删除" % self.friend
             return True
         except NoSuchElementException, error:
-            print "%s Failed" % funname, error
+            print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def cleanchat(self):
@@ -173,7 +182,7 @@ class AloneChat:
             print u"清空聊天历史记录"
             return True
         except NoSuchElementException, error:
-            print "%s Failed, clean button is not found" % funname, error
+            print u"%s Failed, clean button is not found" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def sendimage(self):
@@ -186,7 +195,7 @@ class AloneChat:
             print u"给好友%s发送图片消息" % (self.friend)
             return True
         except NoSuchElementException, error:
-            print "%s Failed, clean button is not found" % funname, error
+            print u"%s Failed, clean button is not found" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def sendfile(self):
@@ -199,7 +208,7 @@ class AloneChat:
             print u"给好友%s发送文件消息" % (self.friend)
             return True
         except NoSuchElementException, error:
-            print "%s Failed, clean button is not found" % funname, error
+            print u"%s Failed, clean button is not found" % funname, error
             self.screenshot("%s.png" % funname)
             return False
     def screenshot(self,file):

@@ -1,13 +1,14 @@
 #coding: utf-8
 
 from selenium import webdriver
-import time,sys
+import time,sys,requests
 from config import *
 from chat_friend import AloneChat
 import unittest
 sys.path.append("..")
 
-#启动一个浏览器，用户1注册，登陆，添加好友
+#del user1 and user2
+
 
 
 class TestFriendChat(unittest.TestCase):
@@ -94,6 +95,7 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.sendimage()
         self.oneuser.sendMSfirend()
         self.assertTrue(self.twouser.cleanchat(), True)
+        time.sleep(2)
         self.twouser.quitBrowser()
         self.oneuser.quitBrowser()
 
@@ -123,22 +125,7 @@ class TestFriendChat(unittest.TestCase):
 
 
 
-'''
 
-
-#用户1接收消息
-
-
-
-oneuser.sendMSfirend()
-oneuser.sendimage()
-oneuser.sendfile()
-
-time.sleep(2)
-oneuser.receiveMess()
-oneuser.cleanchat()
-
-'''
 
 
 

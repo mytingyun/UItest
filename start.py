@@ -4,8 +4,13 @@ import HTMLTestRunner as htr
 import unittest
 import sys,os
 from execute_friend import TestFriendChat
+from config import *
 
 os.system("rm -f %s/errorpng/*" %os.getcwd())
+deluser(user1)
+deluser(user2)
+#
+
 if __name__ == "__main__":
     suite = unittest.TestSuite()
     try:
