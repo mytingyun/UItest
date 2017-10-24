@@ -9,7 +9,7 @@ from selenium.common.exceptions import NoSuchElementException
 #options.add_argument('disable-infobars')
 #browser = webdriver.Chrome(chrome_options=options)
 sys.path.append(os.getcwd())
-class AloneChat:
+class AloneChat(object):
     def __init__(self,driver,user,passwd,url,friend):
         self.driver = driver
         self.user = user
@@ -38,8 +38,14 @@ class AloneChat:
             self.driver.find_element_by_id("password").send_keys(self.passwd)
             self.driver.find_element_by_xpath("//div[@class='ant-row']/button").click()
             time.sleep(2)
-            print u"此次登陆的用户名为：", self.user
-            return True
+            username = self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]").text
+            if str(username) == self.user:
+                print u"此次登陆的用户名为：", self.user
+                return True
+            else:
+                print u"用户%s登陆失败" % self.user
+                return False
+
         except NoSuchElementException,error:
             print u"login Failed",error
             self.screenshot("login.png")
@@ -54,7 +60,7 @@ class AloneChat:
             self.screenshot("logout.png")
             return False
     def addfirend(self):
-        funname = sys._getframe().f_code.co_name
+        funname = sys._getframe().f_code.co_name  #get self functioin name
         try:
             time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='fr']/i").click()

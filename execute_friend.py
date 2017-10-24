@@ -7,9 +7,8 @@ from chat_friend import AloneChat
 import unittest
 sys.path.append("..")
 
-#del user1 and user2
-
-
+deluser(user1)
+deluser(user2)
 
 class TestFriendChat(unittest.TestCase):
     def setUp(self):

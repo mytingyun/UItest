@@ -8,6 +8,9 @@ passwd1 = "1"
 user2 = "auto02"
 passwd2 = "1"
 message = "this is test easemob"
+user3 = "auto03"
+gpasswd = "1"
+groupname = "grouptest"
 
 
 
