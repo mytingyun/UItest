@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Easemob Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2017-10-24 17:03:26</p>
-<p class='attribute'><strong>Duration:</strong> 0:05:08.207163</p>
-<p class='attribute'><strong>Status:</strong> Pass 17</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-10-27 16:31:36</p>
+<p class='attribute'><strong>Duration:</strong> 0:06:30.782626</p>
+<p class='attribute'><strong>Status:</strong> Pass 13</p>
 
 <p class='description'>WebIM2.0 Test Report</p>
 </div>
@@ -222,16 +222,16 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>execute_friend.TestFriendChat</td>
-    <td>14</td>
-    <td>14</td>
+    <td>execute_group.TestGroupChat</td>
+    <td>13</td>
+    <td>13</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',14)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',13)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSignin: 测试注册用户</div></td>
+    <td class='none'><div class='testcase'>testPublicGroupNo</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -247,6 +247,9 @@ function showOutput(id, name) {
         
 pt1.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 此次注册的用户名是：auto02, 密码是：1, 昵称是：auto02
+此次注册的用户名是：auto03, 密码是：1, 昵称是：auto03
+此次登陆的用户名为： auto01
+great public group successed,no verify
 
 
         </pre>
@@ -257,7 +260,7 @@ pt1.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 </tr>
 
 <tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testLogin: 测试登陆用户</div></td>
+    <td class='none'><div class='testcase'>testInviteMember</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -272,6 +275,7 @@ pt1.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
         <pre>
         
 pt1.2: 此次登陆的用户名为： auto01
+invit group member success
 
 
         </pre>
@@ -282,7 +286,7 @@ pt1.2: 此次登陆的用户名为： auto01
 </tr>
 
 <tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testLogout: 测试用户1登出测试</div></td>
+    <td class='none'><div class='testcase'>testVerifyJoin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -296,7 +300,8 @@ pt1.2: 此次登陆的用户名为： auto01
         </div>
         <pre>
         
-pt1.3: 此次登陆的用户名为： auto01
+pt1.3: 此次登陆的用户名为： auto02
+invited join group success,group num is:  31137177075715
 
 
         </pre>
@@ -307,7 +312,7 @@ pt1.3: 此次登陆的用户名为： auto01
 </tr>
 
 <tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddFriend1: 测试用户1添加好友，此次会被拒绝</div></td>
+    <td class='none'><div class='testcase'>testApplyGroup</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -321,8 +326,9 @@ pt1.3: 此次登陆的用户名为： auto01
         </div>
         <pre>
         
-pt1.4: 此次登陆的用户名为： auto01
-添加的好友是： auto02
+pt1.4: 此次登陆的用户名为： auto03
+invited join group success,group num is:  31137177075715
+apply join group success
 
 
         </pre>
@@ -333,7 +339,7 @@ pt1.4: 此次登陆的用户名为： auto01
 </tr>
 
 <tr id='pt1.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testrefuseFriend: 测试拒绝添加好友</div></td>
+    <td class='none'><div class='testcase'>testsdgrpMess</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -347,8 +353,11 @@ pt1.4: 此次登陆的用户名为： auto01
         </div>
         <pre>
         
-pt1.5: 此次登陆的用户名为： auto02
-拒绝来自auto01的添加好友申请
+pt1.5: 此次登陆的用户名为： auto01
+发送图片消息
+发送文件消息
+发送文本消息，内容为this is test easemob
+发送文本消息，内容为this is test easemob
 
 
         </pre>
@@ -359,7 +368,7 @@ pt1.5: 此次登陆的用户名为： auto02
 </tr>
 
 <tr id='pt1.6' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddFriend2: 测试用户2添加好友，此次会被同意</div></td>
+    <td class='none'><div class='testcase'>testgrpMessNum</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -373,8 +382,13 @@ pt1.5: 此次登陆的用户名为： auto02
         </div>
         <pre>
         
-pt1.6: 此次登陆的用户名为： auto01
-添加的好友是： auto02
+pt1.6: 此次登陆的用户名为： auto02
+此次登陆的用户名为： auto01
+发送图片消息
+发送文件消息
+发送文本消息，内容为this is test easemob
+发送文本消息，内容为this is test easemob
+Verify chatgroup message OK, number is:  4
 
 
         </pre>
@@ -385,7 +399,7 @@ pt1.6: 此次登陆的用户名为： auto01
 </tr>
 
 <tr id='pt1.7' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testagreeFriend: 测试同意添加好友</div></td>
+    <td class='none'><div class='testcase'>testDelMember</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -399,8 +413,12 @@ pt1.6: 此次登陆的用户名为： auto01
         </div>
         <pre>
         
-pt1.7: 此次登陆的用户名为： auto02
-同意来自auto01的添加好友申请
+pt1.7: 此次登陆的用户名为： auto01
+user auto03 is operate 确认操作： 从本群移除 success
+此次登陆的用户名为： auto03
+user auto03 deleted success
+invited join group success,group num is:  31137177075715
+apply join group success
 
 
         </pre>
@@ -411,7 +429,7 @@ pt1.7: 此次登陆的用户名为： auto02
 </tr>
 
 <tr id='pt1.8' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testsendImage: 测试发送图片消息</div></td>
+    <td class='none'><div class='testcase'>testAddBlack</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -426,9 +444,8 @@ pt1.7: 此次登陆的用户名为： auto02
         <pre>
         
 pt1.8: 此次登陆的用户名为： auto01
-此次登陆的用户名为： auto02
-给好友auto01发送图片消息
-Pass, New message is exist，num is: 1
+user auto03 is operate 确认操作： 加入群黑名单 success
+add auto03 to black list success
 
 
         </pre>
@@ -439,7 +456,7 @@ Pass, New message is exist，num is: 1
 </tr>
 
 <tr id='pt1.9' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testsendFile: 测试发送文件消息</div></td>
+    <td class='none'><div class='testcase'>testRemoveBlack</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -454,9 +471,7 @@ Pass, New message is exist，num is: 1
         <pre>
         
 pt1.9: 此次登陆的用户名为： auto01
-此次登陆的用户名为： auto02
-给好友auto01发送文件消息
-Pass, New message is exist，num is: 1
+remove black list success
 
 
         </pre>
@@ -467,7 +482,7 @@ Pass, New message is exist，num is: 1
 </tr>
 
 <tr id='pt1.10' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testMultiMess: 测试发送文本，图片，和文件多条消息</div></td>
+    <td class='none'><div class='testcase'>testMute</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -481,12 +496,20 @@ Pass, New message is exist，num is: 1
         </div>
         <pre>
         
-pt1.10: 此次登陆的用户名为： auto02
+pt1.10: 此次登陆的用户名为： auto03
+invited join group success,group num is:  31137177075715
+apply join group success
 此次登陆的用户名为： auto01
-给好友auto02发送文件消息
-给好友auto02发送图片消息
-给好友auto02发送文本消息，内容为this is test easemob
-Pass, New message is exist，num is: 3
+user auto03 is operate 确认操作： 禁言 success
+此次登陆的用户名为： auto03
+发送图片消息
+发送文件消息
+发送文本消息，内容为this is test easemob
+发送文本消息，内容为this is test easemob
+Verify chatgroup message failed, number is not 4 Message: no such element: Unable to locate element: {"method":"xpath","selector":"//div[@class='x-chat-content']/div[4]"}
+  (Session info: chrome=61.0.3163.100)
+  (Driver info: chromedriver=2.31.488774 (7e15618d1bf16df8bf0ecf2914ed1964a387ba0b),platform=Mac OS X 10.12.5 x86_64)
+
 
 
         </pre>
@@ -497,7 +520,7 @@ Pass, New message is exist，num is: 3
 </tr>
 
 <tr id='pt1.11' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testcleanchat: 测试清除历史聊天记录</div></td>
+    <td class='none'><div class='testcase'>testRemoveMute</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -511,12 +534,14 @@ Pass, New message is exist，num is: 3
         </div>
         <pre>
         
-pt1.11: 此次登陆的用户名为： auto02
-此次登陆的用户名为： auto01
-给好友auto02发送文件消息
-给好友auto02发送图片消息
-给好友auto02发送文本消息，内容为this is test easemob
-清空聊天历史记录
+pt1.11: 此次登陆的用户名为： auto01
+user auto03 is operate 确认操作： Remove Mute success
+此次登陆的用户名为： auto03
+发送图片消息
+发送文件消息
+发送文本消息，内容为this is test easemob
+发送文本消息，内容为this is test easemob
+Verify chatgroup message OK, number is:  4
 
 
         </pre>
@@ -527,7 +552,7 @@ pt1.11: 此次登陆的用户名为： auto02
 </tr>
 
 <tr id='pt1.12' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddblack: 将好友移到黑名单</div></td>
+    <td class='none'><div class='testcase'>testaddGrpAdmin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -541,8 +566,9 @@ pt1.11: 此次登陆的用户名为： auto02
         </div>
         <pre>
         
-pt1.12: 此次登陆的用户名为： auto02
-将好友auto01成功加入到黑名单
+pt1.12: 此次登陆的用户名为： auto01
+user auto03 is operate 确认操作： 设为管理员 success
+add group admin auto03 sucess
 
 
         </pre>
@@ -553,7 +579,7 @@ pt1.12: 此次登陆的用户名为： auto02
 </tr>
 
 <tr id='pt1.13' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testremoveblack: 将好友从黑名单中移除</div></td>
+    <td class='none'><div class='testcase'>testRemoveAdmin</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -567,124 +593,9 @@ pt1.12: 此次登陆的用户名为： auto02
         </div>
         <pre>
         
-pt1.13: 此次登陆的用户名为： auto02
-将好友auto01从黑名单中移除
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt1.14' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testdelfriend: 将好友删除</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
-        pass</a>
-
-    <div id='div_pt1.14' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt1.14: 此次登陆的用户名为： auto02
-将好友auto01删除
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr class='passClass'>
-    <td>execute_group.TestGroupChat</td>
-    <td>3</td>
-    <td>3</td>
-    <td>0</td>
-    <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',3)">Detail</a></td>
-</tr>
-
-<tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testPublicGroupNo</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
-        pass</a>
-
-    <div id='div_pt2.1' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
-此次注册的用户名是：auto02, 密码是：1, 昵称是：auto02
-此次注册的用户名是：auto03, 密码是：1, 昵称是：auto03
-此次登陆的用户名为： auto01
-great public group successed,no verify
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testInviteMember</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
-        pass</a>
-
-    <div id='div_pt2.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.2: 此次登陆的用户名为： auto01
-invit group member success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testVerifyJoin</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
-        pass</a>
-
-    <div id='div_pt2.3' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.3: 此次登陆的用户名为： auto02
-invited join group success,group num is:  30867632226306
+pt1.13: 此次登陆的用户名为： auto01
+user auto03 is operate 确认操作： 移除管理员 success
+group admin is None
 
 
         </pre>
@@ -696,8 +607,8 @@ invited join group success,group num is:  30867632226306
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>17</td>
-    <td>17</td>
+    <td>13</td>
+    <td>13</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>

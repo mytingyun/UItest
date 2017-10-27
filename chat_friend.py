@@ -32,6 +32,7 @@ class AloneChat(object):
             self.screenshot("sing_in.png")
             return False
     def login(self):
+        funname = sys._getframe().f_code.co_name
         try:
             self.driver.get(self.url)
             self.driver.find_element_by_id("username").send_keys(self.user)
@@ -44,11 +45,12 @@ class AloneChat(object):
                 return True
             else:
                 print u"用户%s登陆失败" % self.user
+                self.screenshot("%s.png" % funname)
                 return False
 
         except NoSuchElementException,error:
-            print u"login Failed",error
-            self.screenshot("login.png")
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
             return False
     def logout(self):
         try:
@@ -100,12 +102,12 @@ class AloneChat(object):
     def sendMSfirend(self):
         funname = sys._getframe().f_code.co_name
         try:
-            time.sleep(2)
+            time.sleep(1)
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             time.sleep(1)
             self.driver.find_element_by_class_name("ant-input").send_keys(message)
             self.driver.find_element_by_xpath("//span[@class='ant-input-group-addon']/i").click()
-            print u"给好友%s发送文本消息，内容为%s" %(self.friend, message)
+            print u"发送文本消息，内容为%s" %(message)
             return True
         except NoSuchElementException, error:
             print u"%s Failed" % funname, error
@@ -198,7 +200,7 @@ class AloneChat(object):
             time.sleep(1)
             upimage = self.driver.find_element_by_id("uploadImage")
             upimage.send_keys("%s/123.png" %os.getcwd())
-            print u"给好友%s发送图片消息" % (self.friend)
+            print u"发送图片消息"
             return True
         except NoSuchElementException, error:
             print u"%s Failed, clean button is not found" % funname, error
@@ -211,7 +213,7 @@ class AloneChat(object):
             time.sleep(1)
             upfile = self.driver.find_element_by_id("uploadFile")
             upfile.send_keys("%s/123.png" % os.getcwd())
-            print u"给好友%s发送文件消息" % (self.friend)
+            print u"发送文件消息"
             return True
         except NoSuchElementException, error:
             print u"%s Failed, clean button is not found" % funname, error

@@ -11,6 +11,7 @@ message = "this is test easemob"
 user3 = "auto03"
 gpasswd = "1"
 groupname = "grouptest"
+groupmess_num = 4
 
 
 
@@ -57,3 +58,10 @@ def deluser(user):
         print r.content
     except:
         print "tokenurl is not exist"
+
+def getGroupAdmin(groupnum):
+    try:
+        r = requests.get("%s/%s/%s/chatgroups/%s/admin" %(tokenurl,org,app,groupnum), headers=headers)
+        return r.json()
+    except Exception,error:
+        return "request error, %s" % error

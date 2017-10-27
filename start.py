@@ -14,9 +14,12 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     try:
         webim2 = {
-                TestFriendChat:["testSignin","testLogin","testLogout","testaddFriend1","testrefuseFriend","testaddFriend2","testagreeFriend",
-                                "testsendImage","testsendFile","testMultiMess","testcleanchat","testaddblack","testremoveblack","testdelfriend"],
-                TestGroupChat:["testPublicGroupNo","testInviteMember","testVerifyJoin"]
+                #TestFriendChat:["testSignin","testLogin","testLogout","testaddFriend1","testrefuseFriend","testaddFriend2","testagreeFriend",
+                #                "testsendImage","testsendFile","testMultiMess","testcleanchat","testaddblack","testremoveblack","testdelfriend"],
+                TestGroupChat:["testPublicGroupNo","testInviteMember","testVerifyJoin","testApplyGroup","testsdgrpMess","testgrpMessNum",
+                               "testDelMember","testAddBlack","testRemoveBlack","testMute","testRemoveMute","testaddGrpAdmin","testRemoveAdmin"
+
+                               ]
 
                 }
         for classes,methlist in webim2.items():
