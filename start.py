@@ -14,10 +14,16 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     try:
         webim2 = {
-                #TestFriendChat:["testSignin","testLogin","testLogout","testaddFriend1","testrefuseFriend","testaddFriend2","testagreeFriend",
-                #                "testsendImage","testsendFile","testMultiMess","testcleanchat","testaddblack","testremoveblack","testdelfriend"],
+                TestFriendChat:["testSignin","testLogin","testLogout","testaddFriend1","testrefuseFriend","testaddFriend2","testagreeFriend",
+                                "testsendImage","testsendFile","testMultiMess","testcleanchat","testaddblack","testremoveblack","testdelfriend"
+
+                                ],
                 TestGroupChat:["testPublicGroupNo","testInviteMember","testVerifyJoin","testApplyGroup","testsdgrpMess","testgrpMessNum",
-                               "testDelMember","testAddBlack","testRemoveBlack","testMute","testRemoveMute","testaddGrpAdmin","testRemoveAdmin"
+                               "testDelMember","testAddBlack","testRemoveBlack","testMute","testRemoveMute","testaddGrpAdmin","testRemoveAdmin",
+                               "testModifyGrpName","testcleanGroupMess","testdissolveGroup",
+                               "testpublicGrpYES","testRefusejoinGrp","testAgreejoinGrp","testGrpYESmessage",
+                               "testGrpYESdissolve","testprivaGrpAllow","testprivaGrpInvite","testGrpAllowSendMess","testGrpAllowDissovle","testPrivateGrpNoAllow",
+                               "testPrivateOwnerInvite","testPrivateMemberInvite","testPrivGrpSendMess","testPrivGrpNoDissovle"
 
                                ]
 

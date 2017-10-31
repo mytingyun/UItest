@@ -38,7 +38,15 @@ class AloneChat(object):
             self.driver.find_element_by_id("username").send_keys(self.user)
             self.driver.find_element_by_id("password").send_keys(self.passwd)
             self.driver.find_element_by_xpath("//div[@class='ant-row']/button").click()
-            time.sleep(2)
+            #time.sleep(3)
+            while True:
+                try:
+                    if self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]"):
+                        break
+                except NoSuchElementException:
+                    print "waiting the network...."
+                    time.sleep(0.5)
+                    continue
             username = self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]").text
             if str(username) == self.user:
                 print u"此次登陆的用户名为：", self.user
@@ -101,13 +109,14 @@ class AloneChat(object):
             return False
     def sendMSfirend(self):
         funname = sys._getframe().f_code.co_name
+        message = randoms()
         try:
             time.sleep(1)
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             time.sleep(1)
             self.driver.find_element_by_class_name("ant-input").send_keys(message)
             self.driver.find_element_by_xpath("//span[@class='ant-input-group-addon']/i").click()
-            print u"发送文本消息，内容为%s" %(message)
+            print u"用户%s发送文本消息，内容为%s" %(self.user,message)
             return True
         except NoSuchElementException, error:
             print u"%s Failed" % funname, error
@@ -200,7 +209,7 @@ class AloneChat(object):
             time.sleep(1)
             upimage = self.driver.find_element_by_id("uploadImage")
             upimage.send_keys("%s/123.png" %os.getcwd())
-            print u"发送图片消息"
+            print u"用户%s发送图片消息成功" % self.user
             return True
         except NoSuchElementException, error:
             print u"%s Failed, clean button is not found" % funname, error
@@ -213,7 +222,7 @@ class AloneChat(object):
             time.sleep(1)
             upfile = self.driver.find_element_by_id("uploadFile")
             upfile.send_keys("%s/123.png" % os.getcwd())
-            print u"发送文件消息"
+            print u"用户%s发送文件消息成功" % self.user
             return True
         except NoSuchElementException, error:
             print u"%s Failed, clean button is not found" % funname, error

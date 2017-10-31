@@ -12,12 +12,12 @@ deluser(user2)
 
 class TestFriendChat(unittest.TestCase):
     def setUp(self):
-        driver = webdriver.Chrome()
-        self.oneuser = AloneChat(driver,user1,passwd1,url,user2)
         options = webdriver.ChromeOptions()
         options.add_argument('disable-infobars')
         browser = webdriver.Chrome(chrome_options=options)
         self.twouser = AloneChat(browser, user2, passwd2, url, user1)
+        driver = webdriver.Chrome()
+        self.oneuser = AloneChat(driver, user1, passwd1, url, user2)
 
     def testSignin(self):
         u'''测试注册用户'''

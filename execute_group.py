@@ -13,16 +13,15 @@ deluser(user3)
 
 class TestGroupChat(unittest.TestCase):
     def setUp(self):
-        driver1 = webdriver.Chrome()
-        self.oneuser = ChatGroup(driver1, user1, gpasswd, url, user2, groupname)
-
+        self.driver3 = webdriver.Chrome()
+        self.threeuser = ChatGroup(self.driver3, user3, gpasswd, url, user1, groupname)
         options = webdriver.ChromeOptions()
         options.add_argument('disable-infobars')
         self.browser = webdriver.Chrome(chrome_options=options)
         self.twouser = ChatGroup(self.browser, user2, gpasswd, url, user1, groupname)
+        driver1 = webdriver.Chrome()
+        self.oneuser = ChatGroup(driver1, user1, gpasswd, url, user2, groupname)
 
-        self.driver3 = webdriver.Chrome()
-        self.threeuser = ChatGroup(self.driver3, user3, gpasswd, url, user1, groupname)
 
     def testPublicGroupNo(self):
         u'验证创建群组'
@@ -147,7 +146,155 @@ class TestGroupChat(unittest.TestCase):
         self.oneuser.quitBrowser()
         self.threeuser.quitBrowser()
         self.twouser.quitBrowser()
-
+    def testModifyGrpName(self):
+        u'验证修改群名称'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.modifyGrpName(), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testcleanGroupMess(self):
+        u'验证清除群消息'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.cleangrpMessage(groupmess_num),True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testdissolveGroup(self):
+        u'验证解散群聊功能'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.dissolveGroup(groupnum), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testpublicGrpYES(self):
+        u'验证创建需要群主审核的公开'
+        self.oneuser.login()
+        global PubgroupYES
+        result,PubgroupYES = self.oneuser.publicgroupYES()
+        self.assertTrue(result, True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testRefusejoinGrp(self):
+        u'验证拒绝加入审核的公开群'
+        self.oneuser.login()
+        self.twouser.login()
+        self.twouser.applyPubGrp(PubgroupYES)
+        self.oneuser.refusejoinGrp()
+        result,gn = self.twouser.verifyjoin()
+        self.assertFalse(result,False)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testAgreejoinGrp(self):
+        u'验证同意加入审核的公开群'
+        self.oneuser.login()
+        self.twouser.login()
+        self.twouser.applyPubGrp(PubgroupYES)
+        self.oneuser.agreejoinGrp()
+        self.assertTrue(self.twouser.verifyjoin(), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testGrpYESmessage(self):
+        u'验证审核公开群的收发消息功能'
+        self.twouser.login()
+        self.oneuser.login()
+        self.oneuser.sendgroupMess(groupmess_num)
+        self.assertTrue(self.twouser.groupMessNum(groupmess_num),True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testGrpYESdissolve(self):
+        u'验证解散需要审核的公开群'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.dissolveGroup(PubgroupYES), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testprivaGrpAllow(self):
+        u'验证创建允许成员邀请私有群'
+        self.oneuser.login()
+        global privGroupNum
+        reault, privGroupNum = self.oneuser.privaGrpAllow()
+        self.assertTrue(reault,True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testprivaGrpInvite(self):
+        u'验证允许邀请的私有群成员是否可以邀请'
+        self.oneuser.login()
+        self.oneuser.invitemember(user2)
+        self.twouser.login()
+        self.twouser.invitemember(user3)
+        self.threeuser.login()
+        result,gn = self.threeuser.verifyjoin()
+        self.assertTrue(result, True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testGrpAllowSendMess(self):
+        u'验证允许邀请的私有群发送消息'
+        self.twouser.login()
+        self.oneuser.login()
+        self.oneuser.sendgroupMess(groupmess_num)
+        self.assertTrue(self.twouser.groupMessNum(groupmess_num), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testGrpAllowDissovle(self):
+        u'验证允许邀请的私有群解散'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.dissolveGroup(privGroupNum), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testPrivateGrpNoAllow(self):
+        u'验证创建不允许成员邀请的私有群'
+        self.oneuser.login()
+        global privGroupNumNO
+        result,privGroupNumNO = self.oneuser.privaGrpNoAllow()
+        self.assertTrue(result, True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testPrivateOwnerInvite(self):
+        u'验证不允许成员邀请的私有群群主邀请成功'
+        self.oneuser.login()
+        self.oneuser.invitemember(user2)
+        self.twouser.login()
+        result, gn = self.twouser.verifyjoin()
+        self.assertTrue(result, True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testPrivateMemberInvite(self):
+        u'验证不允许成员邀请的私有群成员邀请失败'
+        self.twouser.login()
+        self.twouser.invitemember(user3)
+        self.threeuser.login()
+        result, gn = self.threeuser.verifyjoin()
+        self.assertFalse(result, False)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testPrivGrpSendMess(self):
+        u'验证不允许成员邀请的群发送消息'
+        self.twouser.login()
+        self.oneuser.login()
+        self.oneuser.sendgroupMess(groupmess_num)
+        self.assertTrue(self.twouser.groupMessNum(groupmess_num), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
+    def testPrivGrpNoDissovle(self):
+        u'验证不允许成员邀请的群解散'
+        self.oneuser.login()
+        self.assertTrue(self.oneuser.dissolveGroup(privGroupNumNO), True)
+        self.oneuser.quitBrowser()
+        self.threeuser.quitBrowser()
+        self.twouser.quitBrowser()
 
     def tearDown(self):
         self.oneuser = None

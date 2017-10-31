@@ -1,17 +1,22 @@
 #coding: utf-8
-import requests,json
+import requests,json,md5,time
 
+def randoms():
+    now = time.time()
+    now = str(now).split('.')[0]
+    newmd5 = md5.new()
+    newmd5.update(now)
+    return newmd5.hexdigest()
 
 url = "https://webim-h5.easemob.com"
 user1 = "auto01"
 passwd1 = "1"
 user2 = "auto02"
 passwd2 = "1"
-message = "this is test easemob"
 user3 = "auto03"
 gpasswd = "1"
 groupname = "grouptest"
-groupmess_num = 4
+groupmess_num = 6
 
 
 

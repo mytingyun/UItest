@@ -45,15 +45,19 @@ class ChatGroup(AloneChat):
         funname = sys._getframe().f_code.co_name
         try:
             time.sleep(1)
-            self.driver.find_element_by_xpath("//li[@class='ant-menu-item']/span").click()
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
             time.sleep(2)
-            self.driver.find_element_by_xpath("//ul[@class='ant-menu ant-menu-inline ant-menu-light ant-menu-root']/li").click()
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             self.driver.find_element_by_xpath("//span[@class='fr']/i").click()
-            self.driver.find_element_by_xpath("//li[@class='ant-dropdown-menu-item']/span").click()
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-root']/li/span").click()
             self.driver.find_element_by_xpath("//div[@class='ant-col-20']/input").send_keys(member)
             time.sleep(2)
             self.driver.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='ant-card-head']/div/i").click()
             print u"invit group member success"
             return True
         except NoSuchElementException, error:
@@ -107,7 +111,10 @@ class ChatGroup(AloneChat):
     def sendgroupMess(self,groupmess_num):
         funname = sys._getframe().f_code.co_name
         try:
-            self.driver.find_element_by_xpath("//li[@class='ant-menu-item']/span").click()
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             time.sleep(1)
             self.sendimage()
             self.sendfile()
@@ -127,6 +134,7 @@ class ChatGroup(AloneChat):
             time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             try:
+                time.sleep(2)
                 if self.driver.find_element_by_xpath("//div[@class='x-chat-content']/div[%d]" %groupmess_num):
                     print u"Verify chatgroup message OK, number is: ", groupmess_num
                     return True
@@ -275,7 +283,7 @@ class ChatGroup(AloneChat):
                 "//ul[@class='ant-menu ant-menu-inline ant-menu-light ant-menu-root']/li/div/div").text
 
             if str(newgroup) == "%snew" % groupname:
-                print u"group name modify success"
+                print u"group name modify success, new group name is: %s" % newgroup
                 return True
             else:
                 print u"group name modify failed"
@@ -284,3 +292,192 @@ class ChatGroup(AloneChat):
             print u"%s Failed" % funname, error
             self.screenshot("%s.png" % funname)
             return False
+    def cleangrpMessage(self,groupmess_num):
+        funname = sys._getframe().f_code.co_name
+        try:
+            self.sendgroupMess(groupmess_num)
+            self.groupMessNum(groupmess_num)
+            self.driver.find_element_by_xpath("//i[@class='icon iconfont icon-trash']").click()
+            try:
+                if self.driver.find_element_by_xpath("//div[@class='x-chat-content']/div"):
+                    print "clean group message failed"
+                    return False
+            except NoSuchElementException,error:
+                print "clean group message success"
+                return True
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False
+    def dissolveGroup(self,groupnum):
+        funname = sys._getframe().f_code.co_name
+        try:
+            # click chatgroup
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            time.sleep(3)
+            # click group name
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            # click group infomation
+            self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
+            # click group setup
+            self.driver.find_element_by_xpath("//div[@class='ant-card-body']/h3/span/i").click()
+            # click dissolve group
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-root']/li[4]/span/i").click()
+            time.sleep(1)
+            admin = getGroupAdmin(groupnum)
+            if "error" in admin:
+                print "dissolve group %s success, %s" %(groupnum, admin["error_description"])
+                return True
+            else:
+                print "dissolve group %s failed" % groupnum
+                return False
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False
+    def publicgroupYES(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
+            self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
+            groupnm.send_keys(self.groupname)
+            desc = self.driver.find_element_by_xpath("//textarea[@class='ant-input']")
+            desc.send_keys(self.groupname)
+            self.driver.find_element_by_xpath("//form[@class='ant-form ant-form-horizontal x-add-group']/div/div[4]/div/div/div/label/span").click()
+            self.driver.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']").click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//button[@type='submit']").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            time.sleep(2)
+            # click group name
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(1)
+            group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
+            groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
+            if str(group) == self.groupname:
+                print u"great public group need agree successed,no verify,group id is: %s" % groupnum
+                return True,groupnum
+            else:
+                print u"greage public group need agree failed"
+                return False,None
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False,None
+    def applyPubGrp(self,groupnum):
+        funname = sys._getframe().f_code.co_name
+        try:
+            self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical x-header-ops__dropmenu ant-dropdown-menu-light ant-dropdown-menu-root']/li[2]/span/i").click()
+            self.driver.find_element_by_xpath("//div[@class='ant-col-18']/input").send_keys(groupnum)
+            self.driver.find_element_by_xpath("//div[@class='ant-col-6']/button").click()
+            time.sleep(3)
+            self.driver.find_element_by_xpath("//div[@class='x-dialog']/div[3]/button").click()
+            self.driver.find_element_by_xpath("//div[@class='ant-modal-content']/button").click()
+        except Exception, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False
+
+    def refusejoinGrp(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='ant-col-10']/button[2]").click()
+            print "refuse join group success"
+            return True
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False
+    def agreejoinGrp(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='ant-row']/div[2]/button").click()
+            print "agree join group success"
+            return True
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False
+
+    def privaGrpAllow(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
+            self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
+            groupnm.send_keys(self.groupname)
+            desc = self.driver.find_element_by_xpath("//textarea[@class='ant-input']")
+            desc.send_keys(self.groupname)
+            self.driver.find_element_by_xpath(
+                "//form[@class='ant-form ant-form-horizontal x-add-group']/div/div[3]/div/div/div/label/span").click()
+            self.driver.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']").click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//button[@type='submit']").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            time.sleep(2)
+            # click group name
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(1)
+            group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
+            groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
+            if str(group) == self.groupname:
+                print u"great private group allow invite successed"
+                return True, groupnum
+            else:
+                print u"greage private group allow invite failed"
+                return False, None
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False, None
+
+    def privaGrpNoAllow(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
+            self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
+            groupnm.send_keys(self.groupname)
+            desc = self.driver.find_element_by_xpath("//textarea[@class='ant-input']")
+            desc.send_keys(self.groupname)
+            self.driver.find_element_by_xpath(
+                "//form[@class='ant-form ant-form-horizontal x-add-group']/div/div[3]/div/div/div/label/span").click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//input[@type='checkbox']").click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']").click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//button[@type='submit']").click()
+            time.sleep(2)
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            time.sleep(2)
+            # click group name
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(1)
+            group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
+            groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
+            if str(group) == self.groupname:
+                print u"great private group not allow invite successed"
+                return True, groupnum
+            else:
+                print u"greage private group not allow invite failed"
+                return False, None
+        except NoSuchElementException, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s.png" % funname)
+            return False, None
