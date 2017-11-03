@@ -7,8 +7,6 @@ from chat_friend import AloneChat
 import unittest
 sys.path.append("..")
 
-deluser(user1)
-deluser(user2)
 
 class TestFriendChat(unittest.TestCase):
     def setUp(self):
@@ -19,48 +17,48 @@ class TestFriendChat(unittest.TestCase):
         driver = webdriver.Chrome()
         self.oneuser = AloneChat(driver, user1, passwd1, url, user2)
 
-    def testSignin(self):
+    def testSignin_1(self):
         u'''测试注册用户'''
         self.assertTrue(self.oneuser.sign_in(), True)
         self.oneuser.quitBrowser()
         self.assertTrue(self.twouser.sign_in(), True)
         self.twouser.quitBrowser()
-    def testLogin(self):
+    def testLogin_2(self):
         u'测试登陆用户'
         self.assertTrue(self.oneuser.login(), True)
-    def testaddFriend1(self):
+    def testaddFriend1_3(self):
         u'测试用户1添加好友，此次会被拒绝'
         self.oneuser.login()
         self.assertTrue(self.oneuser.addfirend(), True)
-    def testLogout(self):
+    def testLogout_4(self):
         u'测试用户1登出测试'
         self.oneuser.login()
         self.assertTrue(self.oneuser.logout(), True)
-    def testrefuseFriend(self):
+    def testrefuseFriend_5(self):
         u'测试拒绝添加好友'
         self.twouser.login()
         self.assertTrue(self.twouser.refusefriend(), True)
-    def testaddFriend2(self):
+    def testaddFriend2_6(self):
         u'测试用户2添加好友，此次会被同意'
         self.oneuser.login()
         self.assertTrue(self.oneuser.addfirend(), True)
-    def testagreeFriend(self):
+    def testagreeFriend_7(self):
         u'测试同意添加好友'
         self.twouser.login()
         self.assertTrue(self.twouser.agreefriend(), True)
-    def testsendImage(self):
+    def testsendImage_8(self):
         u'测试发送图片消息'
         self.oneuser.login()
         self.twouser.login()
         self.twouser.sendimage()
-        self.assertTrue(self.oneuser.receiveMess(1), True)
-    def testsendFile(self):
+        self.assertTrue(self.oneuser.receiveimage(), True)
+    def testsendFile_9(self):
         u'测试发送文件消息'
         self.oneuser.login()
         self.twouser.login()
         self.twouser.sendfile()
-        self.assertTrue(self.oneuser.receiveMess(1), True)
-    def testMultiMess(self):
+        self.assertTrue(self.oneuser.receivefile(), True)
+    def testMultiMess_10(self):
         u'测试发送文本，图片，和文件多条消息'
         self.twouser.login()
         self.oneuser.login()
@@ -68,7 +66,7 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.sendimage()
         self.oneuser.sendMSfirend()
         self.assertTrue(self.twouser.receiveMess(3), True)
-    def testcleanchat(self):
+    def testcleanchat_11(self):
         u'测试清除历史聊天记录'
         self.twouser.login()
         self.oneuser.login()
@@ -78,16 +76,16 @@ class TestFriendChat(unittest.TestCase):
         self.assertTrue(self.twouser.cleanchat(), True)
         time.sleep(2)
 
-    def testaddblack(self):
+    def testaddblack_12(self):
         u'将好友移到黑名单'
         self.twouser.login()
         self.assertTrue(self.twouser.addtoblack(), True)
         time.sleep(2)
-    def testremoveblack(self):
+    def testremoveblack_13(self):
         u'将好友从黑名单中移除'
         self.twouser.login()
         self.assertTrue(self.twouser.removeblack(), True)
-    def testdelfriend(self):
+    def testdelfriend_14(self):
         u'将好友删除'
         self.twouser.login()
         self.assertTrue(self.twouser.delfriend(), True)

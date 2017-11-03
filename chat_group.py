@@ -148,6 +148,32 @@ class ChatGroup(AloneChat):
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
             print u"%s Failed" % funname, error
             return False
+
+    def groupRcvImage(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            result = self.receiveimage()
+            return result
+        except Exception,err:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print "Group receive images message failed",err
+            return False
+    def groupRcvFile(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]").click()
+            result = self.receivefile()
+            return result
+        except Exception,err:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print "Group receive file message failed",err
+            return False
+
     def operateMember(self,num):
         #num is: 1,to admin; 2, mute; 3,add to black list; 4,del member
         funname = sys._getframe().f_code.co_name
@@ -222,6 +248,7 @@ class ChatGroup(AloneChat):
 
             time.sleep(2)
             self.driver.find_element_by_xpath("//span[@class='fr']/i").click()
+            time.sleep(2)
             self.driver.find_element_by_xpath("//i[@class='anticon anticon-frown']").click()
             time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='ant-table-content']/div/table/tbody/tr/td[2]/a").click()
@@ -328,6 +355,7 @@ class ChatGroup(AloneChat):
             # click group setup
             self.driver.find_element_by_xpath("//div[@class='ant-card-body']/h3/span/i").click()
             # click dissolve group
+            time.sleep(2)
             self.driver.find_element_by_xpath(
                 "//ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-root']/li[4]/span/i").click()
             time.sleep(1)

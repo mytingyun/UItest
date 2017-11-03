@@ -184,6 +184,7 @@ class AloneChat(object):
     def delfriend(self):
         funname = sys._getframe().f_code.co_name
         try:
+            time.sleep(2)
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             self.driver.find_element_by_xpath("//i[@class='iconfont icon-trash']").click()
@@ -219,6 +220,28 @@ class AloneChat(object):
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
             print u"%s Failed, clean button is not found" % funname, error
             return False
+    def receiveimage(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(1)
+            if self.driver.find_element_by_xpath("//div[@class='x-message-img']/img"):
+                imageurl = self.driver.find_element_by_xpath("//div[@class='x-message-img']/img").get_attribute("src")
+                print "image url: ", imageurl
+                code = requests.get(imageurl)
+                if code.status_code == 200:
+                    print "image messages receive success"
+                    return True
+                else:
+                    self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                    print "image messages receive failed"
+                    return False
+        except Exception, error:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print "not receive image messsage", error
+            return False
+
     def sendfile(self):
         funname = sys._getframe().f_code.co_name
         try:
@@ -226,13 +249,35 @@ class AloneChat(object):
             self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
             time.sleep(1)
             upfile = self.driver.find_element_by_id("uploadFile")
-            upfile.send_keys("%s/123.png" % os.getcwd())
+            upfile.send_keys("%s/config.py" % os.getcwd())
             print u"用户%s发送文件消息成功" % self.user
             return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
             print u"%s Failed, clean button is not found" % funname, error
             return False
+    def receivefile(self):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(1)
+            if self.driver.find_element_by_xpath("//div[@class='x-message-file']/div/div[2]/a"):
+                fileurl = self.driver.find_element_by_xpath("//div[@class='x-message-file']/div/div[2]/a").get_attribute("href")
+                print "file url: ", fileurl
+                code = requests.get(fileurl)
+                if code.status_code == 200:
+                    print "File messages receive success"
+                    return True
+                else:
+                    self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                    print "File messages receive failed"
+                    return False
+        except Exception, error:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print "not receive file messsage", error
+            return False
+
     def screenshot(self,file):
         self.driver.get_screenshot_as_file("%s/errorpng/%s" %(os.getcwd(),file))
     def closewindow(self):

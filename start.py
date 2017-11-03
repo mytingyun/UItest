@@ -5,25 +5,33 @@ import unittest
 import sys,os
 from execute_friend import TestFriendChat
 from execute_group import TestGroupChat
+from execute_room import TestChatRoom
 from config import *
 
 os.system("rm -f %s/errorpng/*" %os.getcwd())
 
+deluser(user1)
+deluser(user2)
+deluser(user3)
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()
     try:
         webim2 = {
-                TestFriendChat:["testSignin","testLogin","testLogout","testaddFriend1","testrefuseFriend","testaddFriend2","testagreeFriend",
-                                "testsendImage","testsendFile","testMultiMess","testcleanchat","testaddblack","testremoveblack","testdelfriend",],
-                TestGroupChat:["testPublicGroupNo","testInviteMember","testVerifyJoin","testApplyGroup","testsdgrpMess","testgrpMessNum",
-                               "testDelMember","testAddBlack","testRemoveBlack","testMute","testRemoveMute","testaddGrpAdmin","testRemoveAdmin",
-                               "testModifyGrpName","testcleanGroupMess","testdissolveGroup","testpublicGrpYES","testRefusejoinGrp",
-                               "testAgreejoinGrp","testGrpYESmessage","testGrpYESdissolve","testprivaGrpAllow","testprivaGrpInvite",
-                               "testGrpAllowSendMess","testGrpAllowDissovle","testPrivateGrpNoAllow","testPrivateOwnerInvite",
-                               "testPrivateMemberInvite","testPrivGrpSendMess","testPrivGrpNoDissovle"
+                TestFriendChat:["testSignin_1","testLogin_2","testaddFriend1_3","testLogout_4","testrefuseFriend_5","testaddFriend2_6","testagreeFriend_7",
+                               "testsendImage_8","testsendFile_9","testMultiMess_10","testcleanchat_11","testaddblack_12","testremoveblack_13","testdelfriend_14",],
+                TestGroupChat:["testPublicGroupNo_1","testInviteMember_2","testVerifyJoin_3","testApplyGroup_4","testsdgrpMess_5","testgrpMessNum_6",
+                               "testDelMember_7","testAddBlack_8","testRemoveBlack_9","testMute_10","testRemoveMute_11","testaddGrpAdmin_12","testRemoveAdmin_13",
+                              "testModifyGrpName_14","testcleanGroupMess_15","testdissolveGroup_16","testpublicGrpYES_17","testRefusejoinGrp_18",
+                               "testAgreejoinGrp_19","testGrpYESmessage_20","testGrpYESimage_21","testGrpYESfile_22","testGrpYESdissolve_23","testprivaGrpAllow_24","testprivaGrpInvite_25",
+                               "testGrpAllowSendMess_26","testGrpAllowImage_27","testGrpAllowDissovle_28","testPrivateGrpNoAllow_29","testPrivateOwnerInvite_30",
+                               "testPrivateMemberInvite_31","testPrivGrpSendMess_32","testPrivGrpfile_33","testPrivGrpNoDissovle_34"
 
-                               ]
+                            ],
+
+                TestChatRoom:["testJoinChatroom_1","testSendImage_2","testSendFile_3","testSdMultiMess_4","testCleanMessage_5",
+
+                              ]
 
                 }
         for classes,methlist in webim2.items():
