@@ -17,6 +17,7 @@ class AloneChat(object):
         self.friend = friend
     def sign_in(self):
         try:
+            self.driver.set_page_load_timeout(30)
             self.driver.get(self.url)
             self.driver.find_element_by_xpath("//div[@class='extra']/p/span").click()
             self.driver.find_element_by_xpath("//div[@class='ant-form-item-control ']/input").send_keys(self.user)
@@ -33,6 +34,7 @@ class AloneChat(object):
     def login(self):
         funname = sys._getframe().f_code.co_name
         try:
+            self.driver.set_page_load_timeout(30)
             self.driver.get(self.url)
             self.driver.find_element_by_id("username").send_keys(self.user)
             self.driver.find_element_by_id("password").send_keys(self.passwd)

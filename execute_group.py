@@ -118,7 +118,8 @@ class TestGroupChat(unittest.TestCase):
     def testcleanGroupMess_15(self):
         u'验证清除群消息'
         self.oneuser.login()
-        self.assertTrue(self.oneuser.cleangrpMessage(groupmess_num),True)
+        self.oneuser.cleangrpMessage(groupmess_num)
+        self.assertFalse(self.oneuser.groupMessNum(groupmess_num), False)
     def testdissolveGroup_16(self):
         u'验证解散群聊功能'
         self.oneuser.login()

@@ -375,6 +375,7 @@ class ChatGroup(AloneChat):
         try:
             time.sleep(1)
             self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
+            time.sleep(2)
             self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
             groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
             groupnm.send_keys(self.groupname)
