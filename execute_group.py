@@ -32,7 +32,7 @@ class TestGroupChat(unittest.TestCase):
         u'验证邀请其他人员加入群聊'
         self.oneuser.login()
         self.assertTrue(self.oneuser.invitemember(user2), True)
-        time.sleep(2)
+        #time.sleep(2)
     def testVerifyJoin_3(self):
         u'验证是否加入成功'
         self.twouser.login()

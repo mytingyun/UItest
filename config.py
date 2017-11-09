@@ -56,6 +56,29 @@ headers = {'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': "Bearer %s" % token}
 
+roombody= {
+    "name":"1111111auto",
+    "description":"automatic chatroom test",
+    "maxusers":10,
+    "scale":"large",
+    "owner":"auto01"
+    }
+
+def createroom():
+    r = requests.post("%s/%s/%s/chatrooms" %(tokenurl,org,app), headers=headers, data=json.dumps(roombody))
+    roomdata = r.json()
+    if r.status_code == 200:
+        print "chat room create success,room id is: ",roomdata['data']['id']
+        return roomdata['data']['id']
+    else:
+        return r.content
+
+def delroom(roomid):
+    r = requests.delete("%s/%s/%s/chatrooms/%s" %(tokenurl,org,app,roomid),headers=headers)
+    if r.status_code == 200:
+        print "room id %s delete success" % roomid
+    else:
+        print "room id %s delete failed" % roomid, r.json()
 
 def deluser(user):
     try:

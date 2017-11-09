@@ -10,12 +10,12 @@ sys.path.append("..")
 
 class TestFriendChat(unittest.TestCase):
     def setUp(self):
+        driver = webdriver.Chrome()
+        self.oneuser = AloneChat(driver, user1, passwd1, url, user2)
         options = webdriver.ChromeOptions()
         options.add_argument('disable-infobars')
         browser = webdriver.Chrome(chrome_options=options)
         self.twouser = AloneChat(browser, user2, passwd2, url, user1)
-        driver = webdriver.Chrome()
-        self.oneuser = AloneChat(driver, user1, passwd1, url, user2)
 
     def testSignin_1(self):
         u'''测试注册用户'''
@@ -66,7 +66,61 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.sendimage()
         self.oneuser.sendMSfirend()
         self.assertTrue(self.twouser.receiveMess(3), True)
-    def testcleanchat_11(self):
+    def testAgreeVideo_11(self):
+        u'测试同意在线视频聊天的邀请'
+        self.oneuser.login()
+        onetab = self.oneuser.defineWindows()
+        self.twouser.login()
+        twotab = self.twouser.defineWindows()
+        self.oneuser.sendMSfirend()
+        self.twouser.sendMSfirend()
+        self.oneuser.goBack(onetab)
+        self.oneuser.inviteAuVid(3)
+        self.oneuser.clickVideoAllow()
+        self.twouser.goBack(twotab)
+        self.assertTrue(self.twouser.agreeVideo(), True)
+    def testRefuVideo_12(self):
+        u'测试拒绝视频聊天的邀请'
+        self.oneuser.login()
+        onetab = self.oneuser.defineWindows()
+        self.twouser.login()
+        twotab = self.twouser.defineWindows()
+        self.oneuser.sendMSfirend()
+        self.twouser.sendMSfirend()
+        self.oneuser.goBack(onetab)
+        self.oneuser.inviteAuVid(3)
+        self.oneuser.clickVideoAllow()
+        self.twouser.goBack(twotab)
+        self.assertTrue(self.twouser.refuseAuVid(), True)
+    def testAgreeAudio_13(self):
+        u'测试同意在线音频通话'
+        self.oneuser.login()
+        onetab = self.oneuser.defineWindows()
+        self.twouser.login()
+        twotab = self.twouser.defineWindows()
+        self.oneuser.sendMSfirend()
+        self.twouser.sendMSfirend()
+        self.oneuser.goBack(onetab)
+        self.oneuser.inviteAuVid(4)
+        self.oneuser.clickAudioAllow()
+        self.twouser.goBack(twotab)
+        self.assertTrue(self.twouser.agreeAudio(), True)
+    def testRefuseAudio_14(self):
+        u'测试拒绝在线音频通话'
+        self.oneuser.login()
+        onetab = self.oneuser.defineWindows()
+        self.twouser.login()
+        twotab = self.twouser.defineWindows()
+        self.oneuser.sendMSfirend()
+        self.twouser.sendMSfirend()
+        self.oneuser.goBack(onetab)
+        self.oneuser.inviteAuVid(4)
+        self.oneuser.clickAudioAllow()
+        self.twouser.goBack(twotab)
+        self.assertTrue(self.twouser.refuseAuVid(), True)
+
+
+    def testcleanchat_15(self):
         u'测试清除历史聊天记录'
         self.twouser.login()
         self.oneuser.login()
@@ -74,18 +128,16 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.sendimage()
         self.oneuser.sendMSfirend()
         self.assertTrue(self.twouser.cleanchat(), True)
-        time.sleep(2)
 
-    def testaddblack_12(self):
+    def testaddblack_16(self):
         u'将好友移到黑名单'
         self.twouser.login()
         self.assertTrue(self.twouser.addtoblack(), True)
-        time.sleep(2)
-    def testremoveblack_13(self):
+    def testremoveblack_17(self):
         u'将好友从黑名单中移除'
         self.twouser.login()
         self.assertTrue(self.twouser.removeblack(), True)
-    def testdelfriend_14(self):
+    def testdelfriend_18(self):
         u'将好友删除'
         self.twouser.login()
         self.assertTrue(self.twouser.delfriend(), True)

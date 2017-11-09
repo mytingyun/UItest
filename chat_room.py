@@ -5,6 +5,8 @@ import time
 from config import *
 from chat_friend import AloneChat
 from chat_group import ChatGroup
+from selenium.webdriver.support.ui import WebDriverWait
+
 sys.path.append(os.getcwd())
 
 class ChatRoom(ChatGroup):
@@ -16,8 +18,8 @@ class ChatRoom(ChatGroup):
         try:
             self.driver.find_element_by_xpath(
                 "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]").click()
-            time.sleep(2)
-            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
             try:
                 if self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div"):
                     roomnumID = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
@@ -36,22 +38,20 @@ class ChatRoom(ChatGroup):
             print "join chat room failed", error
             return False, None
 
-
     def JoinAssignRoom(self,roomnumID):
         funname = sys._getframe().f_code.co_name
         try:
-            time.sleep(2)
-            self.driver.find_element_by_xpath(
-                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]").click()
-            time.sleep(1)
-            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]")).click()
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
             nownum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
-            for i in range(1, 8):
+            for i in range(1, 10):
                 if str(nownum) != roomnumID:
                     self.driver.find_element_by_xpath(
                         "//ul[@class='ant-menu ant-menu-inline ant-menu-light ant-menu-root']/li[%d]" % i).click()
                     nownum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
-                    if i == 7:
+                    if i == 10:
                         print "%s is not found" % roomnumID
                         exit(100)
                 else:
@@ -65,11 +65,11 @@ class ChatRoom(ChatGroup):
     def sendroomMess(self,groupmess_num):
         funname = sys._getframe().f_code.co_name
         try:
-            self.driver.find_element_by_xpath(
-                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]").click()
-            time.sleep(2)
-            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
-            time.sleep(1)
+            time.sleep(0.5)
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]")).click()
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
             self.sendimage()
             self.sendfile()
             for num in range(groupmess_num-2):
@@ -83,13 +83,14 @@ class ChatRoom(ChatGroup):
     def RoomMessNum(self,groupmess_num):
         funname = sys._getframe().f_code.co_name
         try:
-            time.sleep(2)
-            self.driver.find_element_by_xpath(
-                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]").click()
-            time.sleep(2)
-            self.driver.find_element_by_xpath("//div[@class='nav-text']/div").click()
+            time.sleep(0.5)
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath(
+                "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[3]")).click()
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
             try:
-                time.sleep(2)
+                WebDriverWait(self.driver, 5).until(
+                    lambda x: x.find_element_by_xpath("//div[@class='x-chat-content']/div[%d]" % groupmess_num))
                 if self.driver.find_element_by_xpath("//div[@class='x-chat-content']/div[%d]" %groupmess_num):
                     print u"Verify chatroom message OK, number is: ", groupmess_num
                     return True

@@ -10,7 +10,7 @@ sys.path.append("..")
 class TestChatRoom(unittest.TestCase):
     def setUp(self):
         self.driver3 = webdriver.Chrome()
-        self.threeuser = ChatRoom(self.driver3, user3, gpasswd, url, user1,groupname)
+        self.threeuser = ChatRoom(self.driver3, user3, gpasswd, url, user2,groupname)
         options = webdriver.ChromeOptions()
         options.add_argument('disable-infobars')
         self.browser = webdriver.Chrome(chrome_options=options)
@@ -20,13 +20,16 @@ class TestChatRoom(unittest.TestCase):
 
     def testJoinChatroom_1(self):
         u'验证加入聊天室'
+        global roomID
         self.oneuser.sign_in()
         self.twouser.sign_in()
         self.threeuser.sign_in()
         self.oneuser.login()
         self.twouser.login()
-        global roomID
-        result, roomID = self.oneuser.JoinChatroom()
+        roomID = createroom()
+        #global roomID
+        #result, roomID = self.oneuser.JoinChatroom()
+        self.oneuser.JoinAssignRoom(roomID)
         self.twouser.JoinAssignRoom(roomID)
         self.threeuser.login()
         self.assertTrue(self.threeuser.JoinAssignRoom(roomID), True)
@@ -62,8 +65,10 @@ class TestChatRoom(unittest.TestCase):
         self.threeuser.JoinAssignRoom(roomID)
         self.oneuser.sendroomMess(groupmess_num)
         self.threeuser.RoomMessNum(groupmess_num)
+        time.sleep(2)
         self.threeuser.cleanchat()
         self.assertFalse(self.threeuser.RoomMessNum(groupmess_num), False)
+        delroom(roomID)
 
     def tearDown(self):
         self.oneuser.quitBrowser()
