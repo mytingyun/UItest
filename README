@@ -2,6 +2,7 @@ VERSION: 1.0
 
 本程序是在mac系统中开发，针对WebIM2.0的自动化测试，测试对象域名：https://webim-h5.easemob.com
 测试包括：
+注册登陆
 好友聊天各功能测试
 chatgroup公共群组各基本功能和私有群组的功能测试
 chatroom的功能测试
@@ -11,9 +12,10 @@ chatroom的功能测试
 1、Python 2.7
 2、Chrome 61.0.3163.91
 3、selenium 3.6.0
+
 注释：
-程序用到了HTMLTestRunner和Unittest框架。
-调用了REST的几个接口：
+使用用到了HTMLTestRunner和Unittest框架。
+调用了REST的接口：
 1、获取token
 2、删除指定用户
 3、获取群成员列表
@@ -21,6 +23,6 @@ chatroom的功能测试
 5、删除chatroom
 
 正常结果：
-程序全部正确执行完测试用例后，测试报告中可以查看每条测试用例执行的步骤以及结果，也会出现截图 ，正确情况下截图会有9张，分别是好友聊天的音视频4张，chatgroup的消息验证4张，和chatroom的消息清除1张
+程序全部正确执行完测试用例后提示pass，测试报告中可以查看每条测试用例执行的步骤以及结果，也会出现截图 ，正确情况下截图会有9张，分别是好友聊天的音视频4张，chatgroup的消息验证4张，和chatroom的消息清除1张
 异常结果：
 包括两种，error和failed。可根据测试报告中的错误提示来判断问题，一般failed属于用例执行不通过，error属于异常，可根据异常信息排查。
