@@ -31,9 +31,9 @@ if __name__ == "__main__":
 
                             ],
 
-                TestChatRoom:["testJoinChatroom_1","testSendImage_2","testSendFile_3","testSdMultiMess_4","testCleanMessage_5",
+                TestChatRoom:["testJoinChatroom_1","testSendImage_2","testSendFile_3","testSdMultiMess_4","testCleanMessage_5",]
 
-                              ]
+
 
                 }
         for classes,methlist in webim2.items():

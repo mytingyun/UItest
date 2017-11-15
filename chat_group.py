@@ -17,7 +17,7 @@ class ChatGroup(AloneChat):
         funname = sys._getframe().f_code.co_name
         try:
             WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath("//div[@class='fr']/i")).click()
-            WebDriverWait(self.driver, 5).until(
+            WebDriverWait(self.driver, 8).until(
                 lambda x: x.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']")).click()
             groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
             groupnm.send_keys(self.groupname)
@@ -456,7 +456,9 @@ class ChatGroup(AloneChat):
         funname = sys._getframe().f_code.co_name
         try:
             WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath("//div[@class='fr']/i")).click()
-            self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            #self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']")).click()
             groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
             groupnm.send_keys(self.groupname)
             desc = self.driver.find_element_by_xpath("//textarea[@class='ant-input']")
@@ -489,7 +491,7 @@ class ChatGroup(AloneChat):
         funname = sys._getframe().f_code.co_name
         try:
             WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath("//div[@class='fr']/i")).click()
-            self.driver.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']").click()
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath("//i[@class='anticon anticon-usergroup-add']")).click()
             groupnm = self.driver.find_element_by_xpath("//input[@id='name']")
             groupnm.send_keys(self.groupname)
             desc = self.driver.find_element_by_xpath("//textarea[@class='ant-input']")

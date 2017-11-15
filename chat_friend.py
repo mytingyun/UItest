@@ -325,15 +325,15 @@ class AloneChat(object):
             username = self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/span").text
             time.sleep(1)
             if username == self.friend:
-                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
                 print "Agree friend %s Video success" % self.friend
                 return True
             else:
-                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
                 print "Agree friend %s Video failed" % self.friend
                 return False
         except Exception, error:
-            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
             print "Agree friend %s Video failed" % self.friend, error
             return False
 
@@ -346,15 +346,15 @@ class AloneChat(object):
             username = self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/span").text
             time.sleep(1)
             if username == self.friend:
-                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
                 print "Agree friend %s Audio success" % self.friend
                 return True
             else:
-                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
                 print "Agree friend %s Audio failed" % self.friend
                 return False
         except Exception, error:
-            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
             print "Agree friend %s Audio failed" % self.friend, error
             return False
 
@@ -364,7 +364,7 @@ class AloneChat(object):
             WebDriverWait(self.driver, 50).until(
                 lambda x: x.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i")).click()
             time.sleep(1)
-            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
             try:
                 if self.driver.find_element_by_xpath("//video[@class='corner']"):
                     print "refuse friend %s Audio or Video failed" % self.friend
@@ -373,7 +373,7 @@ class AloneChat(object):
                 print "refuse friend %s Video or Audio success" % self.friend
                 return True
         except Exception, error:
-            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
             print "invite friend %s Video or Audio failed" % self.friend, error
 
     def screenshot(self,file):
