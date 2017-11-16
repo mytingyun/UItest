@@ -7,6 +7,14 @@ from chat_friend import AloneChat
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 sys.path.append(os.getcwd())
+import logging
+
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(pathname)s [line: %(lineno)d] %(levelname)s %(message)s',
+                    datefmt='%A, %Y-%m-%d %H:%M:%s',
+                    filename='logs/chat.log',
+                    filemode='a'
+                    )
 
 class ChatGroup(AloneChat):
     def __init__(self,driver,user,passwd,url,friend,groupname):
@@ -33,14 +41,17 @@ class ChatGroup(AloneChat):
                 lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div"))
             group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
             if str(group) == self.groupname:
+                logging.info("great public group successed,no verify")
                 print u"great public group successed,no verify"
                 return True
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("greage public group failed")
                 print u"greage public group failed"
                 return False
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -61,10 +72,12 @@ class ChatGroup(AloneChat):
             time.sleep(0.5)
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='ant-card-head']/div/i")).click()
+            logging.info("invit group member success")
             print u"invit group member success"
             return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -79,16 +92,18 @@ class ChatGroup(AloneChat):
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
             groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
-            print "1111", groupnum
             if groupnum:
+                logging.info("invited join group success,group num is: ", str(groupnum))
                 print u"invited join group success,group num is: ", str(groupnum)
                 return True,str(groupnum)
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("invited join group failed ! ")
                 print u"invited join group failed ! "
                 return False,None
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False,None
 
@@ -106,14 +121,17 @@ class ChatGroup(AloneChat):
             self.driver.find_element_by_xpath("//div[@class='ant-modal-content']/button").click()
             value,gn = self.verifyjoin()
             if gn == groupnum:
+                logging.info("apply join group success")
                 print u"apply join group success"
                 return True
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("apply join group failed")
                 print u"apply join group failed"
                 return False
         except NoSuchElementException, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def sendgroupMess(self,groupmess_num):
@@ -130,6 +148,7 @@ class ChatGroup(AloneChat):
             return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def groupMessNum(self,groupmess_num):
@@ -144,14 +163,17 @@ class ChatGroup(AloneChat):
                 WebDriverWait(self.driver, 5).until(
                     lambda x: x.find_element_by_xpath("//div[@class='x-chat-content']/div[%d]" % groupmess_num))
                 if self.driver.find_element_by_xpath("//div[@class='x-chat-content']/div[%d]" %groupmess_num):
+                    logging.info("Verify chatgroup message OK, number is: ", groupmess_num)
                     print u"Verify chatgroup message OK, number is: ", groupmess_num
                     return True
             except Exception, error:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("Verify chatgroup message failed, number is not %d" %groupmess_num, error)
                 print u"Verify chatgroup message failed, number is not %d" %groupmess_num, error
                 return False
         except NoSuchElementException, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -165,6 +187,7 @@ class ChatGroup(AloneChat):
             return result
         except NoSuchElementException,err:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("Group receive images message failed",err)
             print "Group receive images message failed",err
             return False
     def groupRcvFile(self):
@@ -177,6 +200,7 @@ class ChatGroup(AloneChat):
             return result
         except NoSuchElementException,err:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("Group receive file message failed",err)
             print "Group receive file message failed",err
             return False
 
@@ -200,10 +224,12 @@ class ChatGroup(AloneChat):
                 comments = self.driver.find_element_by_xpath("//div[@class='ant-popover-message-title']").text
                 self.driver.find_element_by_xpath("//div[@class='ant-popover-buttons']/button[2]").click()
                 self.driver.find_element_by_xpath("//div[@class='ant-card-extra']/i").click()
+                logging.info("user %s is operate %s success" % (nowuser,comments))
                 print u"user %s is operate %s success" % (nowuser,comments)
             return True,str(nowuser)
         except NoSuchElementException, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed " % (funname), error)
             print u"%s Failed " % (funname), error
             return False,None
     def verifyDelete(self,nowuser):
@@ -212,14 +238,17 @@ class ChatGroup(AloneChat):
             self.driver.find_element_by_xpath("//li[@class='ant-menu-item']/span").click()
             try:
                 WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div"))
+                logging.info("user %s deleted failed" % nowuser)
                 print u"user %s deleted failed" % nowuser
                 self.screenshot("%s.png" % funname)
                 return False
             except Exception:
+                logging.debug("user %s deleted success" % nowuser)
                 print u"user %s deleted success" % nowuser
                 return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def verifyBlkList(self,nowuser):
@@ -232,14 +261,17 @@ class ChatGroup(AloneChat):
                 lambda x: x.find_element_by_xpath("//div[@class='ant-table-content']/div/table/tbody/tr/td"))
             blackuser = self.driver.find_element_by_xpath("//div[@class='ant-table-content']/div/table/tbody/tr/td").text
             if str(blackuser) == nowuser:
+                logging.info("add %s to black list success" % nowuser)
                 print u"add %s to black list success" % nowuser
                 return True
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("add %s to black list failed" % nowuser)
                 print u"add %s to black list failed" % nowuser
                 return False
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -270,26 +302,32 @@ class ChatGroup(AloneChat):
                 lambda x: x.find_element_by_xpath("//div[@class='ant-table-content']/div/table/tbody/tr/td"))
             try:
                 if self.driver.find_element_by_xpath("//div[@class='ant-table-content']/div/table/tbody/tr/td").text:
+                    logging.debug("remove black list failed")
                     print u"remove black list failed"
                     self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
                     return False
             except Exception:
+                logging.info("remove black list success")
                 print u"remove black list success"
                 return True
         except NoSuchElementException, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def groupadmin(self,groupnum,adminuser):
         admin = getGroupAdmin(groupnum)
         if admin["data"]:
             if admin["data"][0] == adminuser:
+                logging.info("add group admin %s sucess" % adminuser)
                 print "add group admin %s sucess" % adminuser
                 return True
             else:
+                logging.debug("add group admin %s failed, now admin is: %s" %(adminuser, admin["data"][0]))
                 print "add group admin %s failed, now admin is: %s" %(adminuser, admin["data"][0])
                 return False
         else:
+            logging.debug("group admin is None")
             print "group admin is None"
             return False
     def modifyGrpName(self):
@@ -321,14 +359,17 @@ class ChatGroup(AloneChat):
             newgroup = self.driver.find_element_by_xpath(
                 "//ul[@class='ant-menu ant-menu-inline ant-menu-light ant-menu-root']/li/div/div").text
             if str(newgroup) == "%snew" % groupname:
+                logging.info("group name modify success, new group name is: %s" % newgroup)
                 print u"group name modify success, new group name is: %s" % newgroup
                 return True
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("group name modify failed")
                 print u"group name modify failed"
                 return False
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def cleangrpMessage(self,groupmess_num):
@@ -340,13 +381,16 @@ class ChatGroup(AloneChat):
             try:
                 if self.driver.find_element_by_xpath("//div[@class='x-chat-content']/div"):
                     self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                    logging.debug("clean group message failed")
                     print "clean group message failed"
                     return False
             except Exception,error:
+                logging.debug("clean group message success")
                 print "clean group message success"
                 return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def dissolveGroup(self,groupnum):
@@ -370,13 +414,16 @@ class ChatGroup(AloneChat):
             time.sleep(0.5)
             admin = getGroupAdmin(groupnum)
             if "error" in admin:
+                logging.info("dissolve group %s success, %s" %(groupnum, admin["error_description"]))
                 print "dissolve group %s success, %s" %(groupnum, admin["error_description"])
                 return True
             else:
+                logging.debug("dissolve group %s failed" % groupnum)
                 print "dissolve group %s failed" % groupnum
                 return False
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def publicgroupYES(self):
@@ -402,14 +449,17 @@ class ChatGroup(AloneChat):
             group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
             groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
             if str(group) == self.groupname:
+                logging.info("great public group need agree successed,no verify,group id is: %s" % groupnum)
                 print u"great public group need agree successed,no verify,group id is: %s" % groupnum
                 return True,groupnum
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("greage public group need agree failed")
                 print u"greage public group need agree failed"
                 return False,None
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False,None
     def applyPubGrp(self,groupnum):
@@ -426,6 +476,7 @@ class ChatGroup(AloneChat):
             self.driver.find_element_by_xpath("//div[@class='ant-modal-content']/button").click()
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -434,10 +485,12 @@ class ChatGroup(AloneChat):
         try:
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='ant-col-10']/button[2]")).click()
+            logging.info("refuse join group success")
             print "refuse join group success"
             return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
     def agreejoinGrp(self):
@@ -445,10 +498,12 @@ class ChatGroup(AloneChat):
         try:
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='ant-row']/div[2]/button")).click()
+            logging.info("agree join group success")
             print "agree join group success"
             return True
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False
 
@@ -476,14 +531,17 @@ class ChatGroup(AloneChat):
             group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
             groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
             if str(group) == self.groupname:
+                logging.info("great private group allow invite successed")
                 print u"great private group allow invite successed"
                 return True, groupnum
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("greage private group allow invite failed")
                 print u"greage private group allow invite failed"
                 return False, None
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False, None
 
@@ -511,13 +569,16 @@ class ChatGroup(AloneChat):
             group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
             groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
             if str(group) == self.groupname:
+                logging.info("great private group not allow invite successed")
                 print u"great private group not allow invite successed"
                 return True, groupnum
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                logging.debug("greage private group not allow invite failed")
                 print u"greage private group not allow invite failed"
                 return False, None
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            logging.debug("%s Failed" % funname, error)
             print u"%s Failed" % funname, error
             return False, None
