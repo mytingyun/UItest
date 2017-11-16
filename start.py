@@ -15,6 +15,7 @@ deluser(user1)
 deluser(user2)
 deluser(user3)
 
+
 if __name__ == "__main__":
     suite = unittest.TestSuite()
     try:
