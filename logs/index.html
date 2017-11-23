@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Easemob Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2017-11-15 10:56:17</p>
-<p class='attribute'><strong>Duration:</strong> 0:20:06.031627</p>
-<p class='attribute'><strong>Status:</strong> Pass 57</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-11-23 11:05:58</p>
+<p class='attribute'><strong>Duration:</strong> 0:24:18.127232</p>
+<p class='attribute'><strong>Status:</strong> Pass 56 Failure 1</p>
 
 <p class='description'>WebIM2.0 Test Report</p>
 </div>
@@ -222,16 +222,16 @@ function showOutput(id, name) {
 </tr>
 
 <tr class='passClass'>
-    <td>execute_room.TestChatRoom</td>
-    <td>5</td>
-    <td>5</td>
+    <td>execute_friend.TestFriendChat</td>
+    <td>18</td>
+    <td>18</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',5)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c1',18)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testJoinChatroom_1: 验证加入聊天室</div></td>
+    <td class='none'><div class='testcase'>testSignin_1: 测试注册用户</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -247,14 +247,6 @@ function showOutput(id, name) {
         
 pt1.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 此次注册的用户名是：auto02, 密码是：1, 昵称是：auto02
-此次注册的用户名是：auto03, 密码是：1, 昵称是：auto03
-用户名auto01登陆成功
-用户名auto02登陆成功
-chat room create success,room id is:  32837430476801
-Join chatroom 32837430476801 success
-Join chatroom 32837430476801 success
-用户名auto03登陆成功
-Join chatroom 32837430476801 success
 
 
         </pre>
@@ -265,7 +257,7 @@ Join chatroom 32837430476801 success
 </tr>
 
 <tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSendImage_2: 验证chatroom发送图片</div></td>
+    <td class='none'><div class='testcase'>testLogin_2: 测试登陆用户</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -280,12 +272,6 @@ Join chatroom 32837430476801 success
         <pre>
         
 pt1.2: 用户名auto01登陆成功
-用户名auto02登陆成功
-Join chatroom 32837430476801 success
-Join chatroom 32837430476801 success
-用户auto01发送图片消息成功
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/ae1c8060-c9b0-11e7-ae50-f39d6c40d6ae
-image messages receive success
 
 
         </pre>
@@ -296,7 +282,7 @@ image messages receive success
 </tr>
 
 <tr id='pt1.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSendFile_3: 验证chatroom发送文件</div></td>
+    <td class='none'><div class='testcase'>testaddFriend1_3: 测试用户1添加好友，此次会被拒绝</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -311,12 +297,7 @@ image messages receive success
         <pre>
         
 pt1.3: 用户名auto01登陆成功
-用户名auto02登陆成功
-Join chatroom 32837430476801 success
-Join chatroom 32837430476801 success
-用户auto01发送文件消息成功
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/bb108aa0-c9b0-11e7-83c9-5bdc61b5150b
-File messages receive success
+添加的好友是： auto02
 
 
         </pre>
@@ -327,7 +308,7 @@ File messages receive success
 </tr>
 
 <tr id='pt1.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSdMultiMess_4: 验证发送多条消息</div></td>
+    <td class='none'><div class='testcase'>testLogout_4: 测试用户1登出测试</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -341,17 +322,7 @@ File messages receive success
         </div>
         <pre>
         
-pt1.4: 用户名auto02登陆成功
-用户名auto03登陆成功
-Join chatroom 32837430476801 success
-Join chatroom 32837430476801 success
-用户auto02发送图片消息成功
-用户auto02发送文件消息成功
-用户auto02发送文本消息，内容为dd91428e808a2ba09eb39c1a5f9a40d2
-用户auto02发送文本消息，内容为7432b5ad76bd7e30d096799afa1b508b
-用户auto02发送文本消息，内容为80e967fafad0d7a433be1ddf7f770b89
-用户auto02发送文本消息，内容为80e967fafad0d7a433be1ddf7f770b89
-Verify chatroom message OK, number is:  6
+pt1.4: 用户名auto01登陆成功
 
 
         </pre>
@@ -362,7 +333,7 @@ Verify chatroom message OK, number is:  6
 </tr>
 
 <tr id='pt1.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testCleanMessage_5: 验证清除所有消息</div></td>
+    <td class='none'><div class='testcase'>testrefuseFriend_5: 测试拒绝添加好友</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -376,21 +347,376 @@ Verify chatroom message OK, number is:  6
         </div>
         <pre>
         
-pt1.5: 用户名auto01登陆成功
-用户名auto03登陆成功
-Join chatroom 32837430476801 success
-Join chatroom 32837430476801 success
-用户auto01发送图片消息成功
-用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为c5969ef16106afe42fdc5e90607e4be2
-用户auto01发送文本消息，内容为45e2d3af184e2081d70c45988d0896c9
-用户auto01发送文本消息，内容为df66864c606fd1e10d3fefa213dfa06c
-用户auto01发送文本消息，内容为df66864c606fd1e10d3fefa213dfa06c
-Verify chatroom message OK, number is:  6
-清空聊天历史记录
-Verify chatroom message failed, number is not 6 Message: 
+pt1.5: 用户名auto02登陆成功
+拒绝来自auto01的添加好友申请
 
-room id 32837430476801 delete success
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testaddFriend2_6: 测试用户2添加好友，此次会被同意</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.6')" >
+        pass</a>
+
+    <div id='div_pt1.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.6: 用户名auto01登陆成功
+添加的好友是： auto02
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testagreeFriend_7: 测试同意添加好友</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.7')" >
+        pass</a>
+
+    <div id='div_pt1.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.7: 用户名auto02登陆成功
+同意来自auto01的添加好友申请
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testsendImage_8: 测试发送图片消息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.8')" >
+        pass</a>
+
+    <div id='div_pt1.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.8: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto02发送图片消息成功
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/7a85cee0-cffb-11e7-bfc9-31ce493d5bb0
+image messages receive success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testsendFile_9: 测试发送文件消息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.9')" >
+        pass</a>
+
+    <div id='div_pt1.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.9: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto02发送文件消息成功
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/84fa8140-cffb-11e7-9b44-6179a0e13a3a
+File messages receive success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testMultiMess_10: 测试发送文本，图片，和文件多条消息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.10')" >
+        pass</a>
+
+    <div id='div_pt1.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.10: 用户名auto02登陆成功
+用户名auto01登陆成功
+用户auto01发送文件消息成功
+用户auto01发送图片消息成功
+用户auto01发送文本消息，内容为c2bba27e67f1f506c4027a20ef27ed8c
+Pass, New message is exist，num is: 3
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testAgreeVideo_11: 测试同意在线视频聊天的邀请</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.11')" >
+        pass</a>
+
+    <div id='div_pt1.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.11: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为96a711237641627216e6c2c29b4e026c
+用户auto02发送文本消息，内容为2e49681a6a281dd8596f76854e1a5315
+auto01 invite auto02 audio or Video chat
+Agree friend auto01 Video success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRefuVideo_12: 测试拒绝视频聊天的邀请</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.12')" >
+        pass</a>
+
+    <div id='div_pt1.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.12: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为376de8c2a3f94211ee6403c1e20281be
+用户auto02发送文本消息，内容为dc6430767f643314121275593f251cff
+auto01 invite auto02 audio or Video chat
+refuse friend auto01 Video or Audio success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testAgreeAudio_13: 测试同意在线音频通话</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.13')" >
+        pass</a>
+
+    <div id='div_pt1.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.13: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为d956822a8344e11c17136cfe15942999
+用户auto02发送文本消息，内容为92ebed00dea77ac70dd75ce2ed9d2004
+auto01 invite auto02 audio or Video chat
+Agree friend auto01 Audio success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testRefuseAudio_14: 测试拒绝在线音频通话</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.14')" >
+        pass</a>
+
+    <div id='div_pt1.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.14: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为24d266bb147c5fe8b752af7676a10e84
+用户auto02发送文本消息，内容为4dfe5e6eff1cdce6c7be78417227aa5c
+auto01 invite auto02 audio or Video chat
+refuse friend auto01 Video or Audio success
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testcleanchat_15: 测试清除历史聊天记录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.15')" >
+        pass</a>
+
+    <div id='div_pt1.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.15: 用户名auto02登陆成功
+用户名auto01登陆成功
+用户auto01发送文件消息成功
+用户auto01发送图片消息成功
+用户auto01发送文本消息，内容为4c7b4b87492c8bbdb1ddfb553f507ff5
+清空聊天历史记录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testaddblack_16: 将好友移到黑名单</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.16')" >
+        pass</a>
+
+    <div id='div_pt1.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.16: 用户名auto02登陆成功
+将好友auto01成功加入到黑名单
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testremoveblack_17: 将好友从黑名单中移除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.17')" >
+        pass</a>
+
+    <div id='div_pt1.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.17: 用户名auto02登陆成功
+将好友auto01从黑名单中移除
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testdelfriend_18: 将好友删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.18')" >
+        pass</a>
+
+    <div id='div_pt1.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.18: 用户名auto02登陆成功
+将好友auto01删除
 
 
         </pre>
@@ -401,16 +727,16 @@ room id 32837430476801 delete success
 </tr>
 
 <tr class='passClass'>
-    <td>execute_friend.TestFriendChat</td>
-    <td>18</td>
-    <td>18</td>
+    <td>execute_room.TestChatRoom</td>
+    <td>5</td>
+    <td>5</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',18)">Detail</a></td>
+    <td><a href="javascript:showClassDetail('c2',5)">Detail</a></td>
 </tr>
 
 <tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSignin_1: 测试注册用户</div></td>
+    <td class='none'><div class='testcase'>testJoinChatroom_1: 验证加入聊天室</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -426,6 +752,14 @@ room id 32837430476801 delete success
         
 pt2.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 此次注册的用户名是：auto02, 密码是：1, 昵称是：auto02
+此次注册的用户名是：auto03, 密码是：1, 昵称是：auto03
+用户名auto01登陆成功
+用户名auto02登陆成功
+chat room create success,room id is:  33563147829249
+Join chatroom 33563147829249 success
+Join chatroom 33563147829249 success
+用户名auto03登陆成功
+Join chatroom 33563147829249 success
 
 
         </pre>
@@ -436,7 +770,7 @@ pt2.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 </tr>
 
 <tr id='pt2.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testLogin_2: 测试登陆用户</div></td>
+    <td class='none'><div class='testcase'>testSendImage_2: 验证chatroom发送图片</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -451,6 +785,12 @@ pt2.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
         <pre>
         
 pt2.2: 用户名auto01登陆成功
+用户名auto02登陆成功
+Join chatroom 33563147829249 success
+Join chatroom 33563147829249 success
+用户auto01发送图片消息成功
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/1d5e0a60-cffc-11e7-9e04-25a2256ebdf7
+image messages receive success
 
 
         </pre>
@@ -461,7 +801,7 @@ pt2.2: 用户名auto01登陆成功
 </tr>
 
 <tr id='pt2.3' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddFriend1_3: 测试用户1添加好友，此次会被拒绝</div></td>
+    <td class='none'><div class='testcase'>testSendFile_3: 验证chatroom发送文件</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -476,7 +816,12 @@ pt2.2: 用户名auto01登陆成功
         <pre>
         
 pt2.3: 用户名auto01登陆成功
-添加的好友是： auto02
+用户名auto02登陆成功
+Join chatroom 33563147829249 success
+Join chatroom 33563147829249 success
+用户auto01发送文件消息成功
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/28c84050-cffc-11e7-a8df-bd5667e9182c
+File messages receive success
 
 
         </pre>
@@ -487,7 +832,7 @@ pt2.3: 用户名auto01登陆成功
 </tr>
 
 <tr id='pt2.4' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testLogout_4: 测试用户1登出测试</div></td>
+    <td class='none'><div class='testcase'>testSdMultiMess_4: 验证发送多条消息</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -501,7 +846,17 @@ pt2.3: 用户名auto01登陆成功
         </div>
         <pre>
         
-pt2.4: 用户名auto01登陆成功
+pt2.4: 用户名auto02登陆成功
+用户名auto03登陆成功
+Join chatroom 33563147829249 success
+Join chatroom 33563147829249 success
+用户auto02发送图片消息成功
+用户auto02发送文件消息成功
+用户auto02发送文本消息，内容为458db1214895ccb12faa891e2d62dfe1
+用户auto02发送文本消息，内容为8e4f1cd728af918e2d884a158cf5b2b2
+用户auto02发送文本消息，内容为f561c3d56662d3b8e8344d1f5afcd7af
+用户auto02发送文本消息，内容为64cad052384947a753028184e28193de
+Verify chatroom message OK, number is:  6
 
 
         </pre>
@@ -512,7 +867,7 @@ pt2.4: 用户名auto01登陆成功
 </tr>
 
 <tr id='pt2.5' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testrefuseFriend_5: 测试拒绝添加好友</div></td>
+    <td class='none'><div class='testcase'>testCleanMessage_5: 验证清除所有消息</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -526,298 +881,21 @@ pt2.4: 用户名auto01登陆成功
         </div>
         <pre>
         
-pt2.5: 用户名auto02登陆成功
-拒绝来自auto01的添加好友申请
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.6' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddFriend2_6: 测试用户2添加好友，此次会被同意</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
-        pass</a>
-
-    <div id='div_pt2.6' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.6: 用户名auto01登陆成功
-添加的好友是： auto02
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.7' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testagreeFriend_7: 测试同意添加好友</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.7')" >
-        pass</a>
-
-    <div id='div_pt2.7' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.7').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.7: 用户名auto02登陆成功
-同意来自auto01的添加好友申请
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.8' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testsendImage_8: 测试发送图片消息</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.8')" >
-        pass</a>
-
-    <div id='div_pt2.8' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.8').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.8: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto02发送图片消息成功
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/253c6980-c9b1-11e7-aefa-2f7b5080f6bc
-image messages receive success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.9' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testsendFile_9: 测试发送文件消息</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.9')" >
-        pass</a>
-
-    <div id='div_pt2.9' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.9').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.9: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto02发送文件消息成功
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/32187ef0-c9b1-11e7-affa-312dad26cd3e
-File messages receive success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.10' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testMultiMess_10: 测试发送文本，图片，和文件多条消息</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.10')" >
-        pass</a>
-
-    <div id='div_pt2.10' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.10').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.10: 用户名auto02登陆成功
-用户名auto01登陆成功
-用户auto01发送文件消息成功
+pt2.5: 用户名auto01登陆成功
+用户名auto03登陆成功
+Join chatroom 33563147829249 success
+Join chatroom 33563147829249 success
 用户auto01发送图片消息成功
-用户auto01发送文本消息，内容为9da1be716dea6d0c781db011befb75cd
-Pass, New message is exist，num is: 3
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.11' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testAgreeVideo_11: 测试同意在线视频聊天的邀请</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.11')" >
-        pass</a>
-
-    <div id='div_pt2.11' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.11').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.11: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto01发送文本消息，内容为31a4e2621a48fe1c40af0815df110555
-用户auto02发送文本消息，内容为8c0568485f952b7e5381de7050497970
-auto01 invite auto02 audio or Video chat
-Agree friend auto01 Video success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.12' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testRefuVideo_12: 测试拒绝视频聊天的邀请</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.12')" >
-        pass</a>
-
-    <div id='div_pt2.12' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.12').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.12: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto01发送文本消息，内容为a122cb3957cac2582515349072163ed8
-用户auto02发送文本消息，内容为c8d30bf2e5d5143180704e50492853aa
-auto01 invite auto02 audio or Video chat
-refuse friend auto01 Video or Audio success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.13' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testAgreeAudio_13: 测试同意在线音频通话</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.13')" >
-        pass</a>
-
-    <div id='div_pt2.13' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.13').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.13: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto01发送文本消息，内容为1940af4755dbabf42e383a7e4e3b4ab4
-用户auto02发送文本消息，内容为bbcabee033399600fd29f21fde5285ad
-auto01 invite auto02 audio or Video chat
-Agree friend auto01 Audio success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.14' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testRefuseAudio_14: 测试拒绝在线音频通话</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.14')" >
-        pass</a>
-
-    <div id='div_pt2.14' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.14').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.14: 用户名auto01登陆成功
-用户名auto02登陆成功
-用户auto01发送文本消息，内容为ac2e63173e5aca0e675564a11ba5cac5
-用户auto02发送文本消息，内容为c85688dd67f3773daad96c74ba64b916
-auto01 invite auto02 audio or Video chat
-refuse friend auto01 Video or Audio success
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.15' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testcleanchat_15: 测试清除历史聊天记录</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.15')" >
-        pass</a>
-
-    <div id='div_pt2.15' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.15').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.15: 用户名auto02登陆成功
-用户名auto01登陆成功
 用户auto01发送文件消息成功
-用户auto01发送图片消息成功
-用户auto01发送文本消息，内容为9c7b404b72a9b2cc57fb000f29ea0360
+用户auto01发送文本消息，内容为b64ac47de313836da33d379111453484
+用户auto01发送文本消息，内容为b8e73b53996c91a3be24f246be4aa300
+用户auto01发送文本消息，内容为63e48d11b9032184870057fd9b1074fc
+用户auto01发送文本消息，内容为ac8ed607dc4f3a1f02a5a67af327ec4c
+Verify chatroom message OK, number is:  6
 清空聊天历史记录
+Verify chatroom message failed, number is not 6 Message: 
+
+room id 33563147829249 delete success
 
 
         </pre>
@@ -827,89 +905,11 @@ pt2.15: 用户名auto02登陆成功
     </td>
 </tr>
 
-<tr id='pt2.16' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddblack_16: 将好友移到黑名单</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.16')" >
-        pass</a>
-
-    <div id='div_pt2.16' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.16').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.16: 用户名auto02登陆成功
-将好友auto01成功加入到黑名单
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.17' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testremoveblack_17: 将好友从黑名单中移除</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.17')" >
-        pass</a>
-
-    <div id='div_pt2.17' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.17').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.17: 用户名auto02登陆成功
-将好友auto01从黑名单中移除
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.18' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testdelfriend_18: 将好友删除</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.18')" >
-        pass</a>
-
-    <div id='div_pt2.18' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.18').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.18: 用户名auto02登陆成功
-将好友auto01删除
-
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr class='passClass'>
+<tr class='failClass'>
     <td>execute_group.TestGroupChat</td>
     <td>34</td>
-    <td>34</td>
-    <td>0</td>
+    <td>33</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c3',34)">Detail</a></td>
 </tr>
@@ -985,8 +985,7 @@ invit group member success
         <pre>
         
 pt3.3: 用户名auto02登陆成功
-1111 32837912821761
-invited join group success,group num is:  32837912821761
+invited join group success,group num is:  33563366981635
 
 
         </pre>
@@ -1012,8 +1011,7 @@ invited join group success,group num is:  32837912821761
         <pre>
         
 pt3.4: 用户名auto03登陆成功
-1111 32837912821761
-invited join group success,group num is:  32837912821761
+invited join group success,group num is:  33563366981635
 apply join group success
 
 
@@ -1042,10 +1040,10 @@ apply join group success
 pt3.5: 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为c0312730b2e11f2b932690e3f6ea76f5
-用户auto01发送文本消息，内容为769c28c36fe6d087aac44886270d07b3
-用户auto01发送文本消息，内容为27ed1e2095e3ddb6ca3fc88274f9583d
-用户auto01发送文本消息，内容为27ed1e2095e3ddb6ca3fc88274f9583d
+用户auto01发送文本消息，内容为4a7aabafcb4c180a4a67d87888b4c20c
+用户auto01发送文本消息，内容为8445a0fb157bf82e539cc84da5c47fcd
+用户auto01发送文本消息，内容为8445a0fb157bf82e539cc84da5c47fcd
+用户auto01发送文本消息，内容为716147c6c7130d1e31e79d6fbaf473f1
 
 
         </pre>
@@ -1074,10 +1072,10 @@ pt3.6: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为013955ef42f3fb3e2f5bb185175960fc
-用户auto01发送文本消息，内容为1525f013800b91a2d098fc816289bf93
-用户auto01发送文本消息，内容为64854927c5c2dfd3d006320b32cce0db
-用户auto01发送文本消息，内容为64854927c5c2dfd3d006320b32cce0db
+用户auto01发送文本消息，内容为ed182d28bb77b8198ce31b705205c261
+用户auto01发送文本消息，内容为fb84b537edce43c51850b082dc338700
+用户auto01发送文本消息，内容为8c309741cdddc57856aefa04b98acff3
+用户auto01发送文本消息，内容为8c309741cdddc57856aefa04b98acff3
 Verify chatgroup message OK, number is:  6
 
 
@@ -1107,8 +1105,7 @@ pt3.7: 用户名auto01登陆成功
 user auto03 is operate 确认操作： 从本群移除 success
 用户名auto03登陆成功
 user auto03 deleted success
-1111 32837912821761
-invited join group success,group num is:  32837912821761
+invited join group success,group num is:  33563366981635
 apply join group success
 
 
@@ -1135,7 +1132,7 @@ apply join group success
         <pre>
         
 pt3.8: 用户名auto01登陆成功
-user auto03 is operate  success
+user auto03 is operate 确认操作： 加入群黑名单 success
 add auto03 to black list success
 
 
@@ -1188,18 +1185,17 @@ remove black list success
         <pre>
         
 pt3.10: 用户名auto03登陆成功
-1111 32837912821761
-invited join group success,group num is:  32837912821761
+invited join group success,group num is:  33563366981635
 apply join group success
 用户名auto01登陆成功
 user auto03 is operate 确认操作： 禁言 success
 用户名auto03登陆成功
 用户auto03发送图片消息成功
 用户auto03发送文件消息成功
-用户auto03发送文本消息，内容为b4f1d209e39b9fba9a547d27aecb6788
-用户auto03发送文本消息，内容为42966c7469ee79d50a6fbc46c908e5f1
-用户auto03发送文本消息，内容为3b787b12bfc3a20d797b7c0ac7facaa5
-用户auto03发送文本消息，内容为3b787b12bfc3a20d797b7c0ac7facaa5
+用户auto03发送文本消息，内容为9e540f3e33f91b86fccd027c550834c0
+用户auto03发送文本消息，内容为3a10448fd74263afa826fe589f674832
+用户auto03发送文本消息，内容为b4b0d24844291d875ce58b379b762ffc
+用户auto03发送文本消息，内容为b4b0d24844291d875ce58b379b762ffc
 Verify chatgroup message failed, number is not 6 Message: 
 
 
@@ -1231,10 +1227,10 @@ user auto03 is operate 确认操作： Remove Mute success
 用户名auto03登陆成功
 用户auto03发送图片消息成功
 用户auto03发送文件消息成功
-用户auto03发送文本消息，内容为af77596b70cdc0e407cfe803e98ea824
-用户auto03发送文本消息，内容为b2c82c55e6a6193bf4f4d2e9d97ec4ac
-用户auto03发送文本消息，内容为b2c82c55e6a6193bf4f4d2e9d97ec4ac
-用户auto03发送文本消息，内容为eb851ad97de6b96708989d4f4315104d
+用户auto03发送文本消息，内容为d2f7109599328ce90e42532842148c51
+用户auto03发送文本消息，内容为042ea2121ed907e30426078f13f6f0a5
+用户auto03发送文本消息，内容为d0ccc34e723dd3e9b9416936b9735a25
+用户auto03发送文本消息，内容为d0ccc34e723dd3e9b9416936b9735a25
 Verify chatgroup message OK, number is:  6
 
 
@@ -1343,10 +1339,10 @@ group name modify success, new group name is: grouptestnew
 pt3.15: 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为c3ddc499833719e50dceb263c8e0b5fe
-用户auto01发送文本消息，内容为e263d33f5c43c70dbc88195021dae633
-用户auto01发送文本消息，内容为61594bfef315e97aaaf02fdfbd692edd
-用户auto01发送文本消息，内容为61594bfef315e97aaaf02fdfbd692edd
+用户auto01发送文本消息，内容为d66b8f456478130466e3e91e5eedf2d3
+用户auto01发送文本消息，内容为fad573a2762df16c6d581b5cfe465f06
+用户auto01发送文本消息，内容为d0f0814c49de29d0466f0d0c13f7094d
+用户auto01发送文本消息，内容为d0f0814c49de29d0466f0d0c13f7094d
 Verify chatgroup message OK, number is:  6
 clean group message success
 Verify chatgroup message failed, number is not 6 Message: 
@@ -1376,7 +1372,7 @@ Verify chatgroup message failed, number is not 6 Message:
         <pre>
         
 pt3.16: 用户名auto01登陆成功
-dissolve group 32837912821761 success, grpID 32837912821761 does not exist!
+dissolve group 33563366981635 success, grpID 33563366981635 does not exist!
 
 
         </pre>
@@ -1402,7 +1398,7 @@ dissolve group 32837912821761 success, grpID 32837912821761 does not exist!
         <pre>
         
 pt3.17: 用户名auto01登陆成功
-great public group need agree successed,no verify,group id is: 32838225297413
+great public group need agree successed,no verify,group id is: 33563771731971
 
 
         </pre>
@@ -1459,8 +1455,7 @@ verifyjoin Failed Message:
 pt3.19: 用户名auto01登陆成功
 用户名auto02登陆成功
 agree join group success
-1111 32838225297413
-invited join group success,group num is:  32838225297413
+invited join group success,group num is:  33563771731971
 
 
         </pre>
@@ -1489,10 +1484,10 @@ pt3.20: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为78b21ff0c4d89fae1cf5ed6c79fcc119
-用户auto01发送文本消息，内容为78cb8c9ce9a3eec504e8ff6a046e82cc
-用户auto01发送文本消息，内容为78cb8c9ce9a3eec504e8ff6a046e82cc
-用户auto01发送文本消息，内容为78cb8c9ce9a3eec504e8ff6a046e82cc
+用户auto01发送文本消息，内容为9e905213207ef1aee7bb742c7c684b60
+用户auto01发送文本消息，内容为b9ea7d548e6ee5cc2bd6e4b44e540d0c
+用户auto01发送文本消息，内容为b9ea7d548e6ee5cc2bd6e4b44e540d0c
+用户auto01发送文本消息，内容为b9ea7d548e6ee5cc2bd6e4b44e540d0c
 Verify chatgroup message OK, number is:  6
 
 
@@ -1503,31 +1498,35 @@ Verify chatgroup message OK, number is:  6
     </td>
 </tr>
 
-<tr id='pt3.21' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testGrpYESimage_21: 验证审核公开群收发图片是否正常</div></td>
+<tr id='ft3.21' class='none'>
+    <td class='failCase'><div class='testcase'>testGrpYESimage_21: 验证审核公开群收发图片是否正常</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.21')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.21')" >
+        fail</a>
 
-    <div id='div_pt3.21' class="popup_window">
+    <div id='div_ft3.21' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.21').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.21').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt3.21: 用户名auto02登陆成功
+ft3.21: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为5c6dffb9fee44b926811e08983404998
-用户auto01发送文本消息，内容为52eb2329ef7dc62702ce0dc6d609fbcf
-用户auto01发送文本消息，内容为52eb2329ef7dc62702ce0dc6d609fbcf
-用户auto01发送文本消息，内容为52eb2329ef7dc62702ce0dc6d609fbcf
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/a2a0fa70-c9b2-11e7-ba46-5f463a148fe3
-image messages receive success
+用户auto01发送文本消息，内容为6ab87e23ecd0ffb8f5df7fd3896c6108
+用户auto01发送文本消息，内容为459c639a370fdac35096bf2c16c30aec
+用户auto01发送文本消息，内容为459c639a370fdac35096bf2c16c30aec
+用户auto01发送文本消息，内容为d5bedb6bb7a93d73cae93b74be3ff226
+not receive image messsage Message: 
+
+Traceback (most recent call last):
+  File "/Users/apple/test/WebIM2/execute_group.py", line 161, in testGrpYESimage_21
+    self.assertTrue(self.twouser.groupRcvImage(), True)
+AssertionError: True
 
 
         </pre>
@@ -1556,11 +1555,11 @@ pt3.22: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为541bb6a2ba2993a1aa895bf37eecbe12
-用户auto01发送文本消息，内容为bf322030608aa788d31b9f985abc6e41
-用户auto01发送文本消息，内容为bf322030608aa788d31b9f985abc6e41
-用户auto01发送文本消息，内容为bf322030608aa788d31b9f985abc6e41
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/b4002700-c9b2-11e7-ba93-73086f7c6a0b
+用户auto01发送文本消息，内容为eff9f98d3db7f1b3a0941f0ada03944d
+用户auto01发送文本消息，内容为c2be2e3e329724383b2a164b199334bb
+用户auto01发送文本消息，内容为a7143f269b05d16970eda7cc4249573a
+用户auto01发送文本消息，内容为a7143f269b05d16970eda7cc4249573a
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/e37b8cd0-cffd-11e7-8a27-195468f61ce3
 File messages receive success
 
 
@@ -1587,7 +1586,7 @@ File messages receive success
         <pre>
         
 pt3.23: 用户名auto01登陆成功
-dissolve group 32838225297413 success, grpID 32838225297413 does not exist!
+dissolve group 33563771731971 success, grpID 33563771731971 does not exist!
 
 
         </pre>
@@ -1643,8 +1642,7 @@ invit group member success
 用户名auto02登陆成功
 invit group member success
 用户名auto03登陆成功
-1111 32838403555329
-invited join group success,group num is:  32838403555329
+invited join group success,group num is:  33564011855873
 
 
         </pre>
@@ -1673,10 +1671,10 @@ pt3.26: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为3dd2166e0a50ec16a0eec0730e1494cd
-用户auto01发送文本消息，内容为9b749379927e56e7df17ac6c66cc5de4
-用户auto01发送文本消息，内容为9b749379927e56e7df17ac6c66cc5de4
-用户auto01发送文本消息，内容为e3e7244dccdba1c98e15ace424c509a1
+用户auto01发送文本消息，内容为911252f5122f1a4caccad3eaaac0c646
+用户auto01发送文本消息，内容为092c27ea696e13f1d5b1e67ac9ba5f3c
+用户auto01发送文本消息，内容为dbe87ec51554384e2baad90559db2c6f
+用户auto01发送文本消息，内容为dbe87ec51554384e2baad90559db2c6f
 Verify chatgroup message OK, number is:  6
 
 
@@ -1706,11 +1704,11 @@ pt3.27: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为c99c77d3ab67ee0b49b5acbeeb28846f
-用户auto01发送文本消息，内容为b7df3123e50be51abe2caf6aae88ad03
-用户auto01发送文本消息，内容为b7df3123e50be51abe2caf6aae88ad03
-用户auto01发送文本消息，内容为b7df3123e50be51abe2caf6aae88ad03
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/ff95ab90-c9b2-11e7-b67d-35e5d0353be5
+用户auto01发送文本消息，内容为d204d6116aa005fe5ff5d8b8d6d3fac8
+用户auto01发送文本消息，内容为f3aa9c4c0606a7d814a80762a8444f4c
+用户auto01发送文本消息，内容为f3aa9c4c0606a7d814a80762a8444f4c
+用户auto01发送文本消息，内容为4314ee15e66ce6243a5d382aad3ac440
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/37f47560-cffe-11e7-be48-8f2ffb668190
 image messages receive success
 
 
@@ -1737,7 +1735,7 @@ image messages receive success
         <pre>
         
 pt3.28: 用户名auto01登陆成功
-dissolve group 32838403555329 success, grpID 32838403555329 does not exist!
+dissolve group 33564011855873 success, grpID 33564011855873 does not exist!
 
 
         </pre>
@@ -1791,8 +1789,7 @@ great private group not allow invite successed
 pt3.30: 用户名auto01登陆成功
 invit group member success
 用户名auto02登陆成功
-1111 32838522044417
-invited join group success,group num is:  32838522044417
+invited join group success,group num is:  33564151316482
 
 
         </pre>
@@ -1850,10 +1847,10 @@ pt3.32: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为40cff61c4c9adfbc3b06b0db226ad9b9
-用户auto01发送文本消息，内容为d670fcc570f4fdab861622f52a26750f
-用户auto01发送文本消息，内容为4c79ce2528e33cc1b4b794fcb2b3d188
-用户auto01发送文本消息，内容为4c79ce2528e33cc1b4b794fcb2b3d188
+用户auto01发送文本消息，内容为d352a74d82637028982f72bf4eb140e5
+用户auto01发送文本消息，内容为f7aefce879cd018a4e0d9b9cc9fa971b
+用户auto01发送文本消息，内容为b397438ae9f0c2cadd807056dbf42048
+用户auto01发送文本消息，内容为b397438ae9f0c2cadd807056dbf42048
 Verify chatgroup message OK, number is:  6
 
 
@@ -1883,11 +1880,11 @@ pt3.33: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为60979ff714a6f7c124b5458c5d3440f5
-用户auto01发送文本消息，内容为967df1afb13f13e2aac815f0bfe59e1e
-用户auto01发送文本消息，内容为2dcaa5468aea29c5fef7d340bcc34395
-用户auto01发送文本消息，内容为2dcaa5468aea29c5fef7d340bcc34395
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/4b0b4c10-c9b3-11e7-a7d1-4142c236c301
+用户auto01发送文本消息，内容为59b2d980b51573f0bfec7385e5b6aaa4
+用户auto01发送文本消息，内容为affb0b7a5da08387d1e17469fb7ebcf6
+用户auto01发送文本消息，内容为affb0b7a5da08387d1e17469fb7ebcf6
+用户auto01发送文本消息，内容为4ad3171eb972f059383572d4237affd7
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/911fe980-cffe-11e7-bd2b-bf18331f2af6
 File messages receive success
 
 
@@ -1914,7 +1911,7 @@ File messages receive success
         <pre>
         
 pt3.34: 用户名auto01登陆成功
-dissolve group 32838522044417 success, grpID 32838522044417 does not exist!
+dissolve group 33564151316482 success, grpID 33564151316482 does not exist!
 
 
         </pre>
@@ -1927,8 +1924,8 @@ dissolve group 32838522044417 success, grpID 32838522044417 does not exist!
 <tr id='total_row'>
     <td>Total</td>
     <td>57</td>
-    <td>57</td>
-    <td>0</td>
+    <td>56</td>
+    <td>1</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

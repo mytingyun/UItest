@@ -17,6 +17,7 @@ user3 = "auto03"
 gpasswd = "1"
 groupname = "grouptest"
 groupmess_num = 6
+sleeptime = 30
 
 
 

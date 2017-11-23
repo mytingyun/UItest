@@ -1,15 +1,15 @@
 #coding= utf-8
-
-
+import sys,os
+os.system("rm -f %s/errorpng/*" %os.getcwd())
+os.system("rm -f %s/logs/*" %os.getcwd())
 import HTMLTestRunner as htr
 import unittest
-import sys,os
 from execute_friend import TestFriendChat
 from execute_group import TestGroupChat
 from execute_room import TestChatRoom
 from config import *
 
-os.system("rm -f %s/errorpng/*" %os.getcwd())
+
 
 deluser(user1)
 deluser(user2)
