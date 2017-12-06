@@ -4,9 +4,8 @@ import selenium,os,sys
 import time
 from config import *
 from selenium.webdriver.support.ui import WebDriverWait
-from pymouse import PyMouse
 from selenium.common.exceptions import NoSuchElementException
-mouse = PyMouse()
+
 
 #options = webdriver.ChromeOptions()
 #options.add_argument('disable-infobars')
@@ -116,7 +115,7 @@ class AloneChat(object):
     def sendMSfirend(self):
         funname = sys._getframe().f_code.co_name
         message = randoms()
-        self.driver.maximize_window()
+        #self.driver.maximize_window()
         try:
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
@@ -287,13 +286,11 @@ class AloneChat(object):
             print "not receive file messsage", error
             return False
 
-    def clickVideoAllow(self):
-        time.sleep(2)
-        mouse.click(385, 201)
+
 
     def clickAudioAllow(self):
         time.sleep(2)
-        mouse.click(379, 183)
+        os.system('audioclick.exe')
 
     def inviteAuVid(self,num):
         # num is videois 3, Audio 4

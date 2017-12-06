@@ -60,7 +60,6 @@ roombody= {
     "name":"1111111auto",
     "description":"automatic chatroom test",
     "maxusers":10,
-    "scale":"large",
     "owner":"auto01"
     }
 

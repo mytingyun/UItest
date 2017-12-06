@@ -97,27 +97,23 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.login()
         onetab = self.oneuser.defineWindows()
         self.twouser.login()
-        twotab = self.twouser.defineWindows()
         self.oneuser.sendMSfirend()
         self.twouser.sendMSfirend()
+        self.twouser.inviteAuVid(4)
+        self.twouser.clickAudioAllow()
         self.oneuser.goBack(onetab)
-        self.oneuser.inviteAuVid(4)
-        self.oneuser.clickAudioAllow()
-        self.twouser.goBack(twotab)
-        self.assertTrue(self.twouser.agreeAudio(), True)
+        self.assertTrue(self.oneuser.agreeAudio(), True)
     def testRefuseAudio_14(self):
         u'测试拒绝在线音频通话'
         self.oneuser.login()
         onetab = self.oneuser.defineWindows()
         self.twouser.login()
-        twotab = self.twouser.defineWindows()
         self.oneuser.sendMSfirend()
         self.twouser.sendMSfirend()
+        self.twouser.inviteAuVid(4)
+        self.twouser.clickAudioAllow()
         self.oneuser.goBack(onetab)
-        self.oneuser.inviteAuVid(4)
-        self.oneuser.clickAudioAllow()
-        self.twouser.goBack(twotab)
-        self.assertTrue(self.twouser.refuseAuVid(), True)
+        self.assertTrue(self.oneuser.refuseAuVid(), True)
 
 
     def testcleanchat_15(self):
