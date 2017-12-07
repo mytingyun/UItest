@@ -17,7 +17,7 @@ user3 = "auto03"
 gpasswd = "1"
 groupname = "grouptest"
 groupmess_num = 6
-sleeptime = 30
+sleeptime = 15
 
 
 
@@ -60,8 +60,7 @@ headers = {'Accept': 'application/json',
 roombody= {
     "name":"1111111auto",
     "description":"automatic chatroom test",
-    "maxusers":10,
-    "scale":"large",
+    "maxusers":1000,
     "owner":"auto01"
     }
 

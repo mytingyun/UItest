@@ -26,23 +26,26 @@ class TestGroupChat(unittest.TestCase):
         self.twouser.sign_in()
         self.threeuser.sign_in()
         self.oneuser.login()
-        self.assertTrue(self.oneuser.publicgroup(), True)
+        global groupnum
+        result, groupnum = self.oneuser.publicgroup()
+        self.assertTrue(result, True)
 
-    def testInviteMember_2(self):
-        u'验证邀请其他人员加入群聊'
-        self.oneuser.login()
-        self.assertTrue(self.oneuser.invitemember(user2), True)
-        #time.sleep(2)
+    def testApplyGroup_2(self):
+        u'验证申请加入群聊'
+        self.twouser.login()
+        self.assertTrue(self.twouser.applyjoin(groupnum), True)
     def testVerifyJoin_3(self):
         u'验证是否加入成功'
         self.twouser.login()
-        global groupnum
+        #global groupnum
         self.judge, groupnum = self.twouser.verifyjoin()
         self.assertTrue(self.judge, True)
-    def testApplyGroup_4(self):
-        u'验证申请加入群聊'
+    def testApplyTwo_4(self):
+        u'验证其他成员加入群聊'
         self.threeuser.login()
         self.assertTrue(self.threeuser.applyjoin(groupnum), True)
+        self.threeuser.login()
+        self.threeuser.verifyjoin()
     def testsdgrpMess_5(self):
         u'验证发送一定数量的群消息'
         self.oneuser.login()
@@ -58,7 +61,7 @@ class TestGroupChat(unittest.TestCase):
     def testDelMember_7(self):
         u'验证删除群成员'
         self.oneuser.login()
-        global nowuser
+        #global nowuser
         result, nowuser = self.oneuser.operateMember(4)
         self.four = ChatGroup(self.browser, nowuser, gpasswd, url, user1, groupname)
         self.four.login()

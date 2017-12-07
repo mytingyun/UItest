@@ -37,6 +37,7 @@ class AloneChat(object):
         funname = sys._getframe().f_code.co_name
         try:
             self.driver.set_page_load_timeout(60)
+
             self.driver.get(self.url)
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_id("username")).send_keys(self.user)
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_id("password")).send_keys(self.passwd)
@@ -92,6 +93,7 @@ class AloneChat(object):
     def refusefriend(self):
         funname = sys._getframe().f_code.co_name
         try:
+            time.sleep(0.5)
             WebDriverWait(self.driver, sleeptime).until(
                 lambda x: x.find_element_by_xpath("//div[@class='ant-col-10']/button[2]")).click()
             print u"拒绝来自%s的添加好友申请" % self.friend
@@ -287,10 +289,12 @@ class AloneChat(object):
 
     def clickVideoAllow(self):
         time.sleep(2)
+        #use mouse.position() location
         mouse.click(385, 201)
 
     def clickAudioAllow(self):
         time.sleep(2)
+        # use mouse.position() location
         mouse.click(379, 183)
 
     def openDevTool(self):

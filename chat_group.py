@@ -27,23 +27,24 @@ class ChatGroup(AloneChat):
             WebDriverWait(self.driver, sleeptime).until(
                 lambda x: x.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']")).click()
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath("//button[@type='submit']")).click()
-            time.sleep(0.5)
+            time.sleep(1)
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath(
                 "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]")).click()
             WebDriverWait(self.driver, sleeptime).until(
-                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div"))
-            group = self.driver.find_element_by_xpath("//div[@class='nav-text']/div").text
-            if str(group) == self.groupname:
-                print u"great public group successed,no verify"
-                return True
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
+            groupnum = self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-header']/div").text
+            #if str(group) == self.groupname:
+            if groupnum:
+                print u"great public group successed,no need verify, groupID is: ",str(groupnum)
+                return True, str(groupnum)
             else:
                 self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
                 print u"greage public group failed"
-                return False
+                return False, None
         except Exception, error:
             self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
             print u"%s Failed" % funname, error
-            return False
+            return False, None
 
     def invitemember(self,member):
         funname = sys._getframe().f_code.co_name
@@ -213,7 +214,7 @@ class ChatGroup(AloneChat):
             try:
                 WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div"))
                 print u"user %s deleted failed" % nowuser
-                self.screenshot("%s.png" % funname)
+                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
                 return False
             except Exception:
                 print u"user %s deleted success" % nowuser
@@ -254,7 +255,7 @@ class ChatGroup(AloneChat):
                 "//ul[@class='ant-menu ant-menu-inline ant-menu-light ant-menu-root']/li").click()
             self.driver.find_element_by_xpath("//div[@class='fr']/span/i").click()
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath("//span[@class='fr']/i")).click()
-
+            time.sleep(0.5)
             WebDriverWait(self.driver, sleeptime).until(
                 lambda x: x.find_element_by_xpath("//i[@class='anticon anticon-frown']")).click()
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath(
@@ -502,7 +503,7 @@ class ChatGroup(AloneChat):
             WebDriverWait(self.driver, sleeptime).until(
                 lambda x: x.find_element_by_xpath("//button[@class='ant-btn fr ant-btn-primary']")).click()
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath("//button[@type='submit']")).click()
-            time.sleep(0.5)
+            time.sleep(1)
             WebDriverWait(self.driver, sleeptime).until(lambda x: x.find_element_by_xpath(
                 "//ul[@class='ant-menu ant-menu-horizontal x-header-tab__menu ant-menu-light ant-menu-root']/li[2]")).click()
             # click group name
