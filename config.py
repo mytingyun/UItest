@@ -1,5 +1,6 @@
 #coding: utf-8
 import requests,json,md5,time
+import sys
 
 def randoms():
     now = time.time()
@@ -8,7 +9,8 @@ def randoms():
     newmd5.update(now)
     return newmd5.hexdigest()
 
-url = 'https://webim-h5.easemob.com'
+#url = 'https://webim-h5.easemob.com'
+url = sys.argv[1]
 user1 = "auto01"
 passwd1 = "1"
 user2 = "auto02"

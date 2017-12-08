@@ -4,6 +4,10 @@
 import HTMLTestRunner as htr
 import unittest
 import sys,os
+
+url = sys.argv[1]
+os.system("python config.py %s" %url)
+
 from execute_friend import TestFriendChat
 from execute_group import TestGroupChat
 from execute_room import TestChatRoom
