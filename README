@@ -12,6 +12,7 @@ chatroom的功能测试
 1、Python 2.7
 2、Chrome 61.0.3163.91
 3、selenium 3.6.0
+4、PyMouse
 
 注释：
 使用用到了HTMLTestRunner和Unittest框架。
@@ -29,5 +30,8 @@ chatroom的功能测试
 包括两种，error和failed。可根据测试报告中的错误提示来判断问题，一般failed属于用例执行不通过，error属于异常，可根据异常信息排查。
 
 备注：
-保证摄像头可用，否则在好友视频在线聊天测试中会报错：an error occured when calling webrtc
+1、保证摄像头可用，否则在好友视频在线聊天测试中会报错：an error occured when calling webrtc
 如果是笔记本电脑，请保证盖子没有盒上，否则摄像头不可用，也会报这个错误。
+2、在测试好友在线音视频的时候，由于浏览器会弹出选择是否允许使用摄像头和麦克风的窗口，此窗口属于系统窗口，selenium无法操控，因此使用
+第三方模块PyMouse来控制鼠标点击，因此如果显示器的屏幕分辩率不同，会影响点击的准确性，目前支持的分辨率是1080p，如果是其他分辨率，
+需要修改chat_friend.py中clickVideoAllow和clickAudioAllow函数的点击坐标。
