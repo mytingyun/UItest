@@ -3,7 +3,7 @@
 from selenium import webdriver
 import time,sys,requests
 from config import *
-from chat_friend import AloneChat
+from chat_friend import AloneChat,ChatVideo
 import unittest
 sys.path.append("..")
 
@@ -68,30 +68,40 @@ class TestFriendChat(unittest.TestCase):
         self.assertTrue(self.twouser.receiveMess(3), True)
     def testAgreeVideo_11(self):
         u'测试同意在线视频聊天的邀请'
-        self.oneuser.login()
-        onetab = self.oneuser.defineWindows()
-        self.twouser.login()
-        twotab = self.twouser.defineWindows()
-        self.oneuser.sendMSfirend()
-        self.twouser.sendMSfirend()
-        self.oneuser.goBack(onetab)
-        self.oneuser.inviteAuVid(3)
-        self.oneuser.clickVideoAllow()
-        self.twouser.goBack(twotab)
-        self.assertTrue(self.twouser.agreeVideo(), True)
+        self.ctvideo = ChatVideo(url)
+        onetab = self.ctvideo.login(user1,passwd1)
+        self.ctvideo.NewLabel()
+        lists = self.ctvideo.driver.window_handles
+        self.ctvideo.driver.switch_to_window(onetab)
+        time.sleep(1)
+        self.ctvideo.driver.switch_to_window(lists[1])
+        twotab = self.ctvideo.login(user2,passwd2)
+        self.ctvideo.sendMSfirend()
+        self.ctvideo.driver.switch_to_window(onetab)
+        self.ctvideo.sendMSfirend()
+        self.ctvideo.inviteAuVid()
+        self.ctvideo.clickVideoAllow()
+        self.ctvideo.driver.switch_to_window(twotab)
+        self.assertTrue(self.ctvideo.agreeVideo(user1), True)
+        self.ctvideo.driver.quit()
     def testRefuVideo_12(self):
         u'测试拒绝视频聊天的邀请'
-        self.oneuser.login()
-        onetab = self.oneuser.defineWindows()
-        self.twouser.login()
-        twotab = self.twouser.defineWindows()
-        self.oneuser.sendMSfirend()
-        self.twouser.sendMSfirend()
-        self.oneuser.goBack(onetab)
-        self.oneuser.inviteAuVid(3)
-        self.oneuser.clickVideoAllow()
-        self.twouser.goBack(twotab)
-        self.assertTrue(self.twouser.refuseAuVid(), True)
+        self.ctvideo = ChatVideo(url)
+        onetab = self.ctvideo.login(user1,passwd1)
+        self.ctvideo.NewLabel()
+        lists = self.ctvideo.driver.window_handles
+        self.ctvideo.driver.switch_to_window(onetab)
+        time.sleep(1)
+        self.ctvideo.driver.switch_to_window(lists[1])
+        twotab = self.ctvideo.login(user2,passwd2)
+        self.ctvideo.sendMSfirend()
+        self.ctvideo.driver.switch_to_window(onetab)
+        self.ctvideo.sendMSfirend()
+        self.ctvideo.inviteAuVid()
+        self.ctvideo.clickVideoAllow()
+        self.ctvideo.driver.switch_to_window(twotab)
+        self.assertTrue(self.ctvideo.refuseVideo(user1), True)
+        self.ctvideo.driver.quit()
     def testAgreeAudio_13(self):
         u'测试同意在线音频通话'
         self.oneuser.login()
@@ -113,7 +123,7 @@ class TestFriendChat(unittest.TestCase):
         self.twouser.inviteAuVid(4)
         self.twouser.clickAudioAllow()
         self.oneuser.goBack(onetab)
-        self.assertTrue(self.oneuser.refuseAuVid(), True)
+        self.assertTrue(self.oneuser.refuseAudio(), True)
 
 
     def testcleanchat_15(self):
@@ -143,9 +153,6 @@ class TestFriendChat(unittest.TestCase):
         self.oneuser.quitBrowser()
         self.oneuser = None
         self.twouser = None
-
-
-
 
 
 

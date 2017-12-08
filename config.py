@@ -8,7 +8,7 @@ def randoms():
     newmd5.update(now)
     return newmd5.hexdigest()
 
-url = "https://webim-h5.easemob.com"
+url = 'https://webim-h5.easemob.com'
 user1 = "auto01"
 passwd1 = "1"
 user2 = "auto02"

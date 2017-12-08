@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>Easemob Test Report</h1>
-<p class='attribute'><strong>Start Time:</strong> 2017-12-06 10:22:04</p>
-<p class='attribute'><strong>Duration:</strong> 0:38:44.457000</p>
-<p class='attribute'><strong>Status:</strong> Pass 51 Failure 3 Error 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2017-12-08 12:15:06</p>
+<p class='attribute'><strong>Duration:</strong> 0:38:40.731000</p>
+<p class='attribute'><strong>Status:</strong> Pass 56 Failure 1</p>
 
 <p class='description'>WebIM2.0 Test Report</p>
 </div>
@@ -221,12 +221,12 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='errorClass'>
+<tr class='passClass'>
     <td>execute_room.TestChatRoom</td>
     <td>5</td>
-    <td>2</td>
-    <td>2</td>
-    <td>1</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
     <td><a href="javascript:showClassDetail('c1',5)">Detail</a></td>
 </tr>
 
@@ -250,11 +250,11 @@ pt1.1: 此次注册的用户名是：auto01, 密码是：1, 昵称是：auto01
 此次注册的用户名是：auto03, 密码是：1, 昵称是：auto03
 用户名auto01登陆成功
 用户名auto02登陆成功
-chat room create success,room id is:  34737925193729
-Join chatroom 34737925193729 success
-Join chatroom 34737925193729 success
+chat room create success,room id is:  34926242103298
+Join chatroom 34926242103298 success
+Join chatroom 34926242103298 success
 用户名auto03登陆成功
-Join chatroom 34737925193729 success
+Join chatroom 34926242103298 success
 
 
         </pre>
@@ -264,32 +264,32 @@ Join chatroom 34737925193729 success
     </td>
 </tr>
 
-<tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>testSendImage_2: 验证chatroom发送图片</div></td>
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testSendImage_2: 验证chatroom发送图片</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
 
-    <div id='div_ft1.2' class="popup_window">
+    <div id='div_pt1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.2: 用户名auto01登陆成功
+pt1.2: 用户名auto01登陆成功
 用户名auto02登陆成功
-Join chatroom 34737925193729 success
-Join chatroom 34737925193729 success
+Join chatroom 34926242103298 success
+Join chatroom 34926242103298 success
 用户auto01发送图片消息成功
-not receive image messsage Message: 
-
-Traceback (most recent call last):
-  File "E:\project\WebIM2.0\execute_room.py", line 43, in testSendImage_2
-    self.assertTrue(self.twouser.receiveimage(), True)
-AssertionError: True
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/d9ab7d50-dbce-11e7-9453-9fac0768b9bd
+C:\Python27\lib\site-packages\urllib3\util\ssl_.py:339: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  SNIMissingWarning
+C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning
+image messages receive success
 
 
         </pre>
@@ -299,35 +299,30 @@ AssertionError: True
     </td>
 </tr>
 
-<tr id='ft1.3' class='none'>
-    <td class='errorCase'><div class='testcase'>testSendFile_3: 验证chatroom发送文件</div></td>
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testSendFile_3: 验证chatroom发送文件</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
-        error</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
 
-    <div id='div_ft1.3' class="popup_window">
+    <div id='div_pt1.3' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.3: 用户名auto01登陆成功
+pt1.3: 用户名auto01登陆成功
 用户名auto02登陆成功
-Join chatroom 34737925193729 success
-Join chatroom 34737925193729 success
+Join chatroom 34926242103298 success
+Join chatroom 34926242103298 success
 用户auto01发送文件消息成功
-Traceback (most recent call last):
-  File "E:\project\WebIM2.0\execute_room.py", line 51, in testSendFile_3
-    self.assertTrue(self.twouser.receivefile(), True)
-  File "E:\project\WebIM2.0\chat_friend.py", line 272, in receivefile
-    lambda x: x.find_element_by_xpath("//div[@class='x-message-file']/div/div[2]/a"))
-  File "C:\Python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
-    raise TimeoutException(message, screen, stacktrace)
-TimeoutException: Message: 
-
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/f0ab17e0-dbce-11e7-871b-c3f8b4190cd4
+C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecurePlatformWarning
+File messages receive success
 
 
         </pre>
@@ -337,37 +332,32 @@ TimeoutException: Message:
     </td>
 </tr>
 
-<tr id='ft1.4' class='none'>
-    <td class='failCase'><div class='testcase'>testSdMultiMess_4: 验证发送多条消息</div></td>
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testSdMultiMess_4: 验证发送多条消息</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
 
-    <div id='div_ft1.4' class="popup_window">
+    <div id='div_pt1.4' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft1.4: 用户名auto02登陆成功
+pt1.4: 用户名auto02登陆成功
 用户名auto03登陆成功
-Join chatroom 34737925193729 success
-Join chatroom 34737925193729 success
+Join chatroom 34926242103298 success
+Join chatroom 34926242103298 success
 用户auto02发送图片消息成功
 用户auto02发送文件消息成功
-用户auto02发送文本消息，内容为3d446fc3dc8f786b56bda93caceed0ab
-用户auto02发送文本消息，内容为73f9586983b35e6b6639c0bb9aaf1204
-用户auto02发送文本消息，内容为be109c25ee631f8e6b76e2bcb654d48c
-用户auto02发送文本消息，内容为9058b46ed6f5ec2f97088ba382ec17d1
-Verify chatroom message failed, number is not 6 Message: 
-
-Traceback (most recent call last):
-  File "E:\project\WebIM2.0\execute_room.py", line 59, in testSdMultiMess_4
-    self.assertTrue(self.threeuser.RoomMessNum(groupmess_num), True)
-AssertionError: True
+用户auto02发送文本消息，内容为c61bbab5e0596ce4662e4aa4a2c8c700
+用户auto02发送文本消息，内容为5f05383bf1a0bdd4c347e1155612e05a
+用户auto02发送文本消息，内容为5f05383bf1a0bdd4c347e1155612e05a
+用户auto02发送文本消息，内容为0c2a32ab7c84155dea579c10812421c3
+Verify chatroom message OK, number is:  6
 
 
         </pre>
@@ -394,20 +384,19 @@ AssertionError: True
         
 pt1.5: 用户名auto01登陆成功
 用户名auto03登陆成功
-Join chatroom 34737925193729 success
-Join chatroom 34737925193729 success
+Join chatroom 34926242103298 success
+Join chatroom 34926242103298 success
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为e5028a38e7ea42c9e71d7c336fd2d668
-用户auto01发送文本消息，内容为684bea8e9e942510628c5b83c3859a85
-用户auto01发送文本消息，内容为64c9597f5fc5e7d447ffedee748e016a
-用户auto01发送文本消息，内容为2d7aacf1e85b7797b69c07fc90498cab
-Verify chatroom message failed, number is not 6 Message: 
-
+用户auto01发送文本消息，内容为c331645a218de2ecb6e7aeed36abe179
+用户auto01发送文本消息，内容为3eb99fddf6b78a9df51887bcef091f8f
+用户auto01发送文本消息，内容为02e2577b7d3e72ba119fa8befe871bfc
+用户auto01发送文本消息，内容为e9bc72f5cf9ef97d88b5ff19e659e6f7
+Verify chatroom message OK, number is:  6
 清空聊天历史记录
 Verify chatroom message failed, number is not 6 Message: 
 
-room id 34737925193729 delete success
+room id 34926242103298 delete success
 
 
         </pre>
@@ -417,11 +406,11 @@ room id 34737925193729 delete success
     </td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>execute_group.TestGroupChat</td>
     <td>34</td>
-    <td>34</td>
-    <td>0</td>
+    <td>33</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c2',34)">Detail</a></td>
 </tr>
@@ -497,8 +486,8 @@ invit group member success
         <pre>
         
 pt2.3: 用户名auto02登陆成功
-1111 34738222989314
-invited join group success,group num is:  34738222989314
+1111 34926493761539
+invited join group success,group num is:  34926493761539
 
 
         </pre>
@@ -524,8 +513,8 @@ invited join group success,group num is:  34738222989314
         <pre>
         
 pt2.4: 用户名auto03登陆成功
-1111 34738222989314
-invited join group success,group num is:  34738222989314
+1111 34926493761539
+invited join group success,group num is:  34926493761539
 apply join group success
 
 
@@ -554,10 +543,10 @@ apply join group success
 pt2.5: 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为fc949d332b676e3b34a88a964dcb53f4
-用户auto01发送文本消息，内容为a621aaac5d57cc940550b9daed7fa2f9
-用户auto01发送文本消息，内容为a621aaac5d57cc940550b9daed7fa2f9
-用户auto01发送文本消息，内容为3da908cf9f808e17fb403e5ebc9ad353
+用户auto01发送文本消息，内容为58c1b62d4b3145a6ff896c602c38edae
+用户auto01发送文本消息，内容为b22790ac1fa5328bae3d21e4c23b7992
+用户auto01发送文本消息，内容为94841ded87752ced9759b540c2f78d58
+用户auto01发送文本消息，内容为4ad6b3e07afb391c9c41a4e71090ae70
 
 
         </pre>
@@ -586,10 +575,10 @@ pt2.6: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为3322be7fce755441442d54ef3bc013d7
-用户auto01发送文本消息，内容为24de45df23ebfaccc10d9b8585928975
-用户auto01发送文本消息，内容为bbe6556c4fc5c155b9ea4d9862191cd4
-用户auto01发送文本消息，内容为bbe6556c4fc5c155b9ea4d9862191cd4
+用户auto01发送文本消息，内容为134167534b57a26fb35fc9da7fde9daf
+用户auto01发送文本消息，内容为65b18fcdc305c7b789c4649e4cf41db3
+用户auto01发送文本消息，内容为47f89eadd22f1bedce0393a2016cd06b
+用户auto01发送文本消息，内容为47f89eadd22f1bedce0393a2016cd06b
 Verify chatgroup message OK, number is:  6
 
 
@@ -619,8 +608,8 @@ pt2.7: 用户名auto01登陆成功
 user auto03 is operate 确认操作： 从本群移除 success
 用户名auto03登陆成功
 user auto03 deleted success
-1111 34738222989314
-invited join group success,group num is:  34738222989314
+1111 34926493761539
+invited join group success,group num is:  34926493761539
 apply join group success
 
 
@@ -700,18 +689,18 @@ remove black list success
         <pre>
         
 pt2.10: 用户名auto03登陆成功
-1111 34738222989314
-invited join group success,group num is:  34738222989314
+1111 34926493761539
+invited join group success,group num is:  34926493761539
 apply join group success
 用户名auto01登陆成功
 user auto03 is operate 确认操作： 禁言 success
 用户名auto03登陆成功
 用户auto03发送图片消息成功
 用户auto03发送文件消息成功
-用户auto03发送文本消息，内容为59b6fb9813371bfc3d07192a576f04a0
-用户auto03发送文本消息，内容为e259ef505beb7430191babdccae10cb3
-用户auto03发送文本消息，内容为36c8cca883da1b7740fce8d1d5738593
-用户auto03发送文本消息，内容为e320b03ab800a4747d16610d8d04a806
+用户auto03发送文本消息，内容为28eb382f6bba22670df22d9791540773
+用户auto03发送文本消息，内容为817f15185c17aa95caf57aa7a2c425ad
+用户auto03发送文本消息，内容为817f15185c17aa95caf57aa7a2c425ad
+用户auto03发送文本消息，内容为d422837ea4a03aebbf5079a9325f2ab2
 Verify chatgroup message failed, number is not 6 Message: 
 
 
@@ -743,10 +732,10 @@ user auto03 is operate 确认操作： Remove Mute success
 用户名auto03登陆成功
 用户auto03发送图片消息成功
 用户auto03发送文件消息成功
-用户auto03发送文本消息，内容为5b609f1d19f6c71e8ef07057e7e3edec
-用户auto03发送文本消息，内容为318b84ba06b84065db3a1a4b886a795c
-用户auto03发送文本消息，内容为13471d80025b708e6139b4cfaa6ee5d5
-用户auto03发送文本消息，内容为13471d80025b708e6139b4cfaa6ee5d5
+用户auto03发送文本消息，内容为d980c7e8c630d3700702797a53ac6d5d
+用户auto03发送文本消息，内容为854742653283c9d5f7705f824a7fe885
+用户auto03发送文本消息，内容为008e882ffbe7916e8a80dd33fe8ef391
+用户auto03发送文本消息，内容为008e882ffbe7916e8a80dd33fe8ef391
 Verify chatgroup message OK, number is:  6
 
 
@@ -811,23 +800,27 @@ group admin is None
     </td>
 </tr>
 
-<tr id='pt2.14' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testModifyGrpName_14: 验证修改群名称</div></td>
+<tr id='ft2.14' class='none'>
+    <td class='failCase'><div class='testcase'>testModifyGrpName_14: 验证修改群名称</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.14')" >
-        pass</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.14')" >
+        fail</a>
 
-    <div id='div_pt2.14' class="popup_window">
+    <div id='div_ft2.14' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.14').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.14').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt2.14: 用户名auto01登陆成功
-group name modify success, new group name is: grouptestnew
+ft2.14: 用户名auto01登陆成功
+group name modify failed
+Traceback (most recent call last):
+  File "E:\project\WebIM2.0\execute_group.py", line 117, in testModifyGrpName_14
+    self.assertTrue(self.oneuser.modifyGrpName(), True)
+AssertionError: True
 
 
         </pre>
@@ -855,10 +848,10 @@ group name modify success, new group name is: grouptestnew
 pt2.15: 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为8eba64e5528dfc08080151be1593ad92
-用户auto01发送文本消息，内容为ace79e3083ff4576fd13211a44e973bd
-用户auto01发送文本消息，内容为64f7bb06e5ef9c6eb93cc2bd3a2ee9be
-用户auto01发送文本消息，内容为3b5f11a5b88181e41ca34a2b6632efe4
+用户auto01发送文本消息，内容为83293973656b6e037dc8a802b6d443e2
+用户auto01发送文本消息，内容为719354fbb18f4c04c18eecf9885abdba
+用户auto01发送文本消息，内容为bdcebd787356500f8cc38e18c9d4434f
+用户auto01发送文本消息，内容为bdcebd787356500f8cc38e18c9d4434f
 Verify chatgroup message OK, number is:  6
 clean group message success
 Verify chatgroup message failed, number is not 6 Message: 
@@ -888,7 +881,7 @@ Verify chatgroup message failed, number is not 6 Message:
         <pre>
         
 pt2.16: 用户名auto01登陆成功
-dissolve group 34738222989314 success, grpID 34738222989314 does not exist!
+dissolve group 34926493761539 success, grpID 34926493761539 does not exist!
 
 
         </pre>
@@ -914,7 +907,7 @@ dissolve group 34738222989314 success, grpID 34738222989314 does not exist!
         <pre>
         
 pt2.17: 用户名auto01登陆成功
-great public group need agree successed,no verify,group id is: 34738938118145
+great public group need agree successed,no verify,group id is: 34927192113154
 
 
         </pre>
@@ -971,8 +964,8 @@ verifyjoin Failed Message:
 pt2.19: 用户名auto01登陆成功
 用户名auto02登陆成功
 agree join group success
-1111 34738938118145
-invited join group success,group num is:  34738938118145
+1111 34927192113154
+invited join group success,group num is:  34927192113154
 
 
         </pre>
@@ -1001,10 +994,10 @@ pt2.20: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为71a07ede93d5fc740b865b981128a465
-用户auto01发送文本消息，内容为f3f6d0c31dd3ba3ce4a506e652dec8eb
-用户auto01发送文本消息，内容为f3f6d0c31dd3ba3ce4a506e652dec8eb
-用户auto01发送文本消息，内容为df81e2ec6889ed5f9ae94bda21a2640f
+用户auto01发送文本消息，内容为5f02d03cae516314cffb179523e7c87f
+用户auto01发送文本消息，内容为814b4cf3b61a76a7e0f69f21da5c646d
+用户auto01发送文本消息，内容为814b4cf3b61a76a7e0f69f21da5c646d
+用户auto01发送文本消息，内容为24fcb601118ad041f24fb24926573537
 Verify chatgroup message OK, number is:  6
 
 
@@ -1034,13 +1027,11 @@ pt2.21: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为5e22d9d0dad4a0177aafeda48c12a0f1
-用户auto01发送文本消息，内容为54c80aad2ca714ee62b50344feaa1eb7
-用户auto01发送文本消息，内容为54c80aad2ca714ee62b50344feaa1eb7
-用户auto01发送文本消息，内容为04ce3711074bf84370bc4ee456ad89e0
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/51c013b0-da2f-11e7-a64f-b104107ef7f9
-C:\Python27\lib\site-packages\urllib3\util\ssl_.py:339: SNIMissingWarning: An HTTPS request has been made, but the SNI (Subject Name Indication) extension to TLS is not available on this platform. This may cause the server to present an incorrect TLS certificate, which can cause validation failures. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
-  SNIMissingWarning
+用户auto01发送文本消息，内容为ba18062b81e20822df368a07775bc1b1
+用户auto01发送文本消息，内容为2bae61442ee24bc118a9bd5e26248177
+用户auto01发送文本消息，内容为562be6d1a1f5544c83282c0d261cc4a8
+用户auto01发送文本消息，内容为de5842ee20bce22f6d597423c8e45e4d
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/3a29b870-dbd1-11e7-9854-c3e73d3b0c47
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 image messages receive success
@@ -1072,11 +1063,11 @@ pt2.22: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为bdbb8e7c9e7c865d40f2afc65350c5ad
-用户auto01发送文本消息，内容为ada924b31ae27718d1ab7d937a89510f
-用户auto01发送文本消息，内容为44f9d9e41bb5bcb5d619cac9c5738f85
-用户auto01发送文本消息，内容为1246dac0d418f411bd890395641694af
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/6bb03e80-da2f-11e7-8f3d-a328a20d661a
+用户auto01发送文本消息，内容为cc85bec0eca5ea1c46cc7ab2669b7cbb
+用户auto01发送文本消息，内容为28a35701d1568b19f5358c51666708df
+用户auto01发送文本消息，内容为034c690f595118db25eeedf71c9c5a94
+用户auto01发送文本消息，内容为90ff949bd984536955a1b4d4f9491b25
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/53509fd0-dbd1-11e7-afad-211db2ba8ede
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 File messages receive success
@@ -1105,7 +1096,7 @@ File messages receive success
         <pre>
         
 pt2.23: 用户名auto01登陆成功
-dissolve group 34738938118145 success, grpID 34738938118145 does not exist!
+dissolve group 34927192113154 success, grpID 34927192113154 does not exist!
 
 
         </pre>
@@ -1161,8 +1152,8 @@ invit group member success
 用户名auto02登陆成功
 invit group member success
 用户名auto03登陆成功
-1111 34739291488259
-invited join group success,group num is:  34739291488259
+1111 34927498297345
+invited join group success,group num is:  34927498297345
 
 
         </pre>
@@ -1191,10 +1182,10 @@ pt2.26: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为e43612b9baddb37a05db07f256afd2da
-用户auto01发送文本消息，内容为77733f547c27ca19e0abbbb56c26b33e
-用户auto01发送文本消息，内容为77733f547c27ca19e0abbbb56c26b33e
-用户auto01发送文本消息，内容为62c9de4b30c3070f02615e125183de74
+用户auto01发送文本消息，内容为b1f997ecb2016a5d5b62775a8416743e
+用户auto01发送文本消息，内容为b63a05ca55faede496a1cbced8823b21
+用户auto01发送文本消息，内容为ca14866b65f60a29ff8a7f72393ac5ea
+用户auto01发送文本消息，内容为dcee228bb072dd3dbeb9f6103ade5770
 Verify chatgroup message OK, number is:  6
 
 
@@ -1224,11 +1215,11 @@ pt2.27: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为b0f1c45f7893bd62cb9575681625d9ea
-用户auto01发送文本消息，内容为b86683bd5dba1750b73209ea2a427ea7
-用户auto01发送文本消息，内容为70764aa58c7dd039798220b87a81e222
-用户auto01发送文本消息，内容为86a1b20a4ec45c6acfa036f4b1be2fa1
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/e5699730-da2f-11e7-b325-2fa79038e67f
+用户auto01发送文本消息，内容为8d8238c1862d02364b592b6d5d0288ee
+用户auto01发送文本消息，内容为6709774d26645dde0f2e329820750e84
+用户auto01发送文本消息，内容为6709774d26645dde0f2e329820750e84
+用户auto01发送文本消息，内容为cd4bc4d7c0808123bb4cade274205981
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/d56a22c0-dbd1-11e7-88a2-6bb39b1cddf4
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 image messages receive success
@@ -1257,7 +1248,7 @@ image messages receive success
         <pre>
         
 pt2.28: 用户名auto01登陆成功
-dissolve group 34739291488259 success, grpID 34739291488259 does not exist!
+dissolve group 34927498297345 success, grpID 34927498297345 does not exist!
 
 
         </pre>
@@ -1311,8 +1302,8 @@ great private group not allow invite successed
 pt2.30: 用户名auto01登陆成功
 invit group member success
 用户名auto02登陆成功
-1111 34739489669122
-invited join group success,group num is:  34739489669122
+1111 34927734226945
+invited join group success,group num is:  34927734226945
 
 
         </pre>
@@ -1370,10 +1361,10 @@ pt2.32: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为ba1b69478b241d10318f1dd8246a47a5
-用户auto01发送文本消息，内容为797c9a3da95ff39b4116fea39ab6deee
-用户auto01发送文本消息，内容为797c9a3da95ff39b4116fea39ab6deee
-用户auto01发送文本消息，内容为99735928f7307ca561812f8258caecf2
+用户auto01发送文本消息，内容为07638ebf69c5e8a93501bff52175f07e
+用户auto01发送文本消息，内容为3dff3ee1854bca16bcfa9260bf6862a9
+用户auto01发送文本消息，内容为3dff3ee1854bca16bcfa9260bf6862a9
+用户auto01发送文本消息，内容为b6af79b6387a4811aa463ef691de9d1b
 Verify chatgroup message OK, number is:  6
 
 
@@ -1403,11 +1394,11 @@ pt2.33: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送图片消息成功
 用户auto01发送文件消息成功
-用户auto01发送文本消息，内容为23001e7b4f3424cedc4ca0301ffcc1d2
-用户auto01发送文本消息，内容为6254abba02d313aea1028a38c49877b3
-用户auto01发送文本消息，内容为e7508b28bc319bca9427a8a001ca5dd8
-用户auto01发送文本消息，内容为18441cbb0bb5d94f2c22043a3c778ce1
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/80e73190-da30-11e7-9791-115e917019bd
+用户auto01发送文本消息，内容为5a6573c416952999de5cb366896e4507
+用户auto01发送文本消息，内容为fa604690abaa08f2969cc93d7db736a5
+用户auto01发送文本消息，内容为cb09e6b575fc2ea9a96431c716f93841
+用户auto01发送文本消息，内容为cb09e6b575fc2ea9a96431c716f93841
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/75441260-dbd2-11e7-b03b-c1d73e9841d3
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 File messages receive success
@@ -1436,7 +1427,7 @@ File messages receive success
         <pre>
         
 pt2.34: 用户名auto01登陆成功
-dissolve group 34739489669122 success, grpID 34739489669122 does not exist!
+dissolve group 34927734226945 success, grpID 34927734226945 does not exist!
 
 
         </pre>
@@ -1446,13 +1437,13 @@ dissolve group 34739489669122 success, grpID 34739489669122 does not exist!
     </td>
 </tr>
 
-<tr class='failClass'>
+<tr class='passClass'>
     <td>execute_friend.TestFriendChat</td>
-    <td>16</td>
-    <td>15</td>
-    <td>1</td>
+    <td>18</td>
+    <td>18</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c3',16)">Detail</a></td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',18)">Detail</a></td>
 </tr>
 
 <tr id='pt3.1' class='hiddenRow'>
@@ -1653,7 +1644,7 @@ pt3.7: 用户名auto02登陆成功
 pt3.8: 用户名auto01登陆成功
 用户名auto02登陆成功
 用户auto02发送图片消息成功
-image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/2c8cb100-da31-11e7-a22e-4b1d28800fdd
+image url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/14c385f0-dbd3-11e7-9eb2-cdd9c6cc9e15
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 image messages receive success
@@ -1684,7 +1675,7 @@ image messages receive success
 pt3.9: 用户名auto01登陆成功
 用户名auto02登陆成功
 用户auto02发送文件消息成功
-file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/3fae4e10-da31-11e7-b860-933fc599bdff
+file url:  https://a1.easemob.com/easemob-demo/chatdemoui/chatfiles/2828e2c0-dbd3-11e7-a99c-d7f8da6bb99e
 C:\Python27\lib\site-packages\urllib3\util\ssl_.py:137: InsecurePlatformWarning: A true SSLContext object is not available. This prevents urllib3 from configuring SSL appropriately and may cause certain SSL connections to fail. You can upgrade to a newer version of Python to solve this. For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   InsecurePlatformWarning
 File messages receive success
@@ -1716,7 +1707,7 @@ pt3.10: 用户名auto02登陆成功
 用户名auto01登陆成功
 用户auto01发送文件消息成功
 用户auto01发送图片消息成功
-用户auto01发送文本消息，内容为42dada3c86465cfb8029bff2d1c28f2a
+用户auto01发送文本消息，内容为b6be680f9004d2b7db9946a9bfc94753
 Pass, New message is exist，num is: 3
 
 
@@ -1727,31 +1718,27 @@ Pass, New message is exist，num is: 3
     </td>
 </tr>
 
-<tr id='ft3.11' class='none'>
-    <td class='failCase'><div class='testcase'>testAgreeAudio_13: 测试同意在线音频通话</div></td>
+<tr id='pt3.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testAgreeVideo_11: 测试同意在线视频聊天的邀请</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.11')" >
-        fail</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.11')" >
+        pass</a>
 
-    <div id='div_ft3.11' class="popup_window">
+    <div id='div_pt3.11' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.11').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.11').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-ft3.11: 用户名auto01登陆成功
+pt3.11: 用户名auto01登陆成功
 用户名auto02登陆成功
-用户auto01发送文本消息，内容为4daa732af036aaa365019fa857203466
-用户auto02发送文本消息，内容为6c78d6011f44ed56dcdada9ed43fb457
-auto02 invite auto01 audio or Video chat
-Agree friend auto02 Audio failed
-Traceback (most recent call last):
-  File "E:\project\WebIM2.0\execute_friend.py", line 105, in testAgreeAudio_13
-    self.assertTrue(self.oneuser.agreeAudio(), True)
-AssertionError: True
+发送文本消息，内容为78bed56c59d22ee6e6baee6bc0f67f50
+发送文本消息，内容为832b5bca509919b9666d06af957b57c0
+invite Video chat
+Agree friend auto01 Video success
 
 
         </pre>
@@ -1762,7 +1749,7 @@ AssertionError: True
 </tr>
 
 <tr id='pt3.12' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testRefuseAudio_14: 测试拒绝在线音频通话</div></td>
+    <td class='none'><div class='testcase'>testRefuVideo_12: 测试拒绝视频聊天的邀请</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1778,10 +1765,10 @@ AssertionError: True
         
 pt3.12: 用户名auto01登陆成功
 用户名auto02登陆成功
-用户auto01发送文本消息，内容为41726e3baf103190ac6a92bd72529b66
-用户auto02发送文本消息，内容为6197d9c32ef6b04864c158d7abe85a08
-auto02 invite auto01 audio or Video chat
-refuse friend auto02 Video or Audio success
+发送文本消息，内容为bbfb5b42e59985612d0c13a95502f3ba
+发送文本消息，内容为86e89871b4fa00ba683a87b9681c7b15
+invite Video chat
+refuse friend auto01 Video success
 
 
         </pre>
@@ -1792,7 +1779,7 @@ refuse friend auto02 Video or Audio success
 </tr>
 
 <tr id='pt3.13' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testcleanchat_15: 测试清除历史聊天记录</div></td>
+    <td class='none'><div class='testcase'>testAgreeAudio_13: 测试同意在线音频通话</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1806,12 +1793,12 @@ refuse friend auto02 Video or Audio success
         </div>
         <pre>
         
-pt3.13: 用户名auto02登陆成功
-用户名auto01登陆成功
-用户auto01发送文件消息成功
-用户auto01发送图片消息成功
-用户auto01发送文本消息，内容为0df31eb1ac55f669c9cf304c74113e9a
-清空聊天历史记录
+pt3.13: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为d016ebbd188adfbf9d249124de47526e
+用户auto02发送文本消息，内容为9cb7deed1e4c5f9cd687b4c77120ffdb
+auto02 invite auto01 audio or Video chat
+Agree friend auto02 Audio success
 
 
         </pre>
@@ -1822,7 +1809,7 @@ pt3.13: 用户名auto02登陆成功
 </tr>
 
 <tr id='pt3.14' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testaddblack_16: 将好友移到黑名单</div></td>
+    <td class='none'><div class='testcase'>testRefuseAudio_14: 测试拒绝在线音频通话</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1836,8 +1823,12 @@ pt3.13: 用户名auto02登陆成功
         </div>
         <pre>
         
-pt3.14: 用户名auto02登陆成功
-将好友auto01成功加入到黑名单
+pt3.14: 用户名auto01登陆成功
+用户名auto02登陆成功
+用户auto01发送文本消息，内容为238d77c63c69f539c92f43e469548f10
+用户auto02发送文本消息，内容为86d37a18e7b9926e8887c1982204c3cf
+auto02 invite auto01 audio or Video chat
+refuse friend auto02  Audio success
 
 
         </pre>
@@ -1848,7 +1839,7 @@ pt3.14: 用户名auto02登陆成功
 </tr>
 
 <tr id='pt3.15' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testremoveblack_17: 将好友从黑名单中移除</div></td>
+    <td class='none'><div class='testcase'>testcleanchat_15: 测试清除历史聊天记录</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1863,7 +1854,11 @@ pt3.14: 用户名auto02登陆成功
         <pre>
         
 pt3.15: 用户名auto02登陆成功
-将好友auto01从黑名单中移除
+用户名auto01登陆成功
+用户auto01发送文件消息成功
+用户auto01发送图片消息成功
+用户auto01发送文本消息，内容为54f65358b776ddfe4fa7312c7e29d27d
+清空聊天历史记录
 
 
         </pre>
@@ -1874,7 +1869,7 @@ pt3.15: 用户名auto02登陆成功
 </tr>
 
 <tr id='pt3.16' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testdelfriend_18: 将好友删除</div></td>
+    <td class='none'><div class='testcase'>testaddblack_16: 将好友移到黑名单</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -1889,6 +1884,58 @@ pt3.15: 用户名auto02登陆成功
         <pre>
         
 pt3.16: 用户名auto02登陆成功
+将好友auto01成功加入到黑名单
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.17' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testremoveblack_17: 将好友从黑名单中移除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.17')" >
+        pass</a>
+
+    <div id='div_pt3.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.17: 用户名auto02登陆成功
+将好友auto01从黑名单中移除
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.18' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testdelfriend_18: 将好友删除</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.18')" >
+        pass</a>
+
+    <div id='div_pt3.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.18: 用户名auto02登陆成功
 将好友auto01删除
 
 
@@ -1901,10 +1948,10 @@ pt3.16: 用户名auto02登陆成功
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>55</td>
-    <td>51</td>
-    <td>3</td>
+    <td>57</td>
+    <td>56</td>
     <td>1</td>
+    <td>0</td>
     <td>&nbsp;</td>
 </tr>
 </table>

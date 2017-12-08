@@ -98,7 +98,9 @@ class ChatGroup(AloneChat):
             self.driver.find_element_by_xpath("//div[@class='fr']/i").click()
             self.driver.find_element_by_xpath(
                 "//ul[@class='ant-dropdown-menu ant-dropdown-menu-vertical x-header-ops__dropmenu ant-dropdown-menu-light ant-dropdown-menu-root']/li[2]/span/i").click()
-            self.driver.find_element_by_xpath("//div[@class='ant-col-18']/input").send_keys(groupnum)
+            #self.driver.find_element_by_xpath("//div[@class='ant-col-18']/input").send_keys(groupnum)
+            WebDriverWait(self.driver, 10).until(
+                lambda x: x.find_element_by_xpath("//div[@class='ant-col-18']/input")).send_keys(groupnum)
             self.driver.find_element_by_xpath("//div[@class='ant-col-6']/button").click()
             time.sleep(0.3)
             WebDriverWait(self.driver, 5).until(

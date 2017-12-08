@@ -3,6 +3,7 @@
 import selenium,os,sys
 import time
 from config import *
+from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 
@@ -43,14 +44,6 @@ class AloneChat(object):
             WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_id("password")).send_keys(self.passwd)
             WebDriverWait(self.driver, 5).until(
                 lambda x: x.find_element_by_xpath("//div[@class='ant-row']/button")).click()
-            #while True:
-            #    try:
-            #        if self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]"):
-             #           break
-            #    except Exception:
-            #        print "waiting the login...."
-            #        time.sleep(0.5)
-             #       continue
             WebDriverWait(self.driver, 20).until(lambda x: x.find_element_by_xpath("//div[@id='x-header-ops']/div[2]"))
             username = self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]").text
             if str(username) == self.user:
@@ -355,23 +348,25 @@ class AloneChat(object):
             print "Agree friend %s Audio failed" % self.friend, error
             return False
 
-    def refuseAuVid(self):
+    def refuseAudio(self):
         funname = sys._getframe().f_code.co_name
         try:
-            WebDriverWait(self.driver, 50).until(
-                lambda x: x.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i")).click()
+            time.sleep(2)
+            #WebDriverWait(self.driver, 20).until(
+            #    lambda x: x.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i")).click()
+            self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i").click()
             time.sleep(1)
             self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
             try:
                 if self.driver.find_element_by_xpath("//video[@class='corner']"):
-                    print "refuse friend %s Audio or Video failed" % self.friend
+                    print "refuse friend %s Audio failed" % self.friend
                     return False
             except NoSuchElementException:
-                print "refuse friend %s Video or Audio success" % self.friend
+                print "refuse friend %s  Audio success" % self.friend
                 return True
         except Exception, error:
             self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
-            print "invite friend %s Video or Audio failed" % self.friend, error
+            print "invite friend %s Audio failed" % self.friend, error
 
     def screenshot(self,file):
         self.driver.get_screenshot_as_file("%s/errorpng/%s" %(os.getcwd(),file))
@@ -388,6 +383,113 @@ class AloneChat(object):
 
 
 
+class ChatVideo():
+    def __init__(self,url):
+        self.url = url
+        self.driver = webdriver.Chrome()
+
+    def screenshot(self,file):
+        self.driver.get_screenshot_as_file("%s/errorpng/%s" %(os.getcwd(),file))
+
+    def login(self,user,passwd):
+        funname = sys._getframe().f_code.co_name
+        try:
+            self.driver.set_page_load_timeout(40)
+            self.driver.get(self.url)
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_id("username")).send_keys(user)
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_id("password")).send_keys(passwd)
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='ant-row']/button")).click()
+            WebDriverWait(self.driver, 20).until(lambda x: x.find_element_by_xpath("//div[@id='x-header-ops']/div[2]"))
+            username = self.driver.find_element_by_xpath("//div[@id='x-header-ops']/div[2]").text
+            if str(username) == user:
+                print u"用户名%s登陆成功" % user
+                tab = self.driver.window_handles
+                return tab[-1]
+            else:
+                self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+                print u"用户%s登陆失败" % user
+                return False
+        except Exception,error:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print u"%s Failed" % funname, error
+            return False
+
+    def NewLabel(self):
+        js = "window.open('https://webim-h5.easemob.com')"
+        self.driver.execute_script(js)
 
 
+    def sendMSfirend(self):
+        funname = sys._getframe().f_code.co_name
+        message = randoms()
+        #self.driver.maximize_window()
+        try:
+            WebDriverWait(self.driver, 5).until(
+                lambda x: x.find_element_by_xpath("//div[@class='nav-text']/div")).click()
+            WebDriverWait(self.driver, 5).until(lambda x: x.find_element_by_class_name("ant-input")).send_keys(message)
+            self.driver.find_element_by_xpath("//span[@class='ant-input-group-addon']/i").click()
+            print u"发送文本消息，内容为%s" %(message)
+            return True
+        except Exception, error:
+            print u"%s Failed" % funname, error
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            return False
 
+    def inviteAuVid(self):
+        # num is videois 3, Audio 4
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='x-list-item x-chat-ops']/label[3]/i").click()
+            print "invite Video chat"
+        except Exception, error:
+            self.screenshot("%s_%s.png" % (funname, time.strftime('%H_%M_%S')))
+            print "invite Video failed"
+
+    def clickVideoAllow(self):
+        time.sleep(3)
+        os.system('videoclieck.exe')
+
+    def agreeVideo(self,friend):
+        funname = sys._getframe().f_code.co_name
+        try:
+            #WebDriverWait(self.driver, 50).until(
+            #    lambda x: x.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i[2]")).click()
+            time.sleep(1)
+            self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i[2]").click()
+            self.clickVideoAllow()
+            username = self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/span").text
+            time.sleep(1)
+            if username == friend:
+                self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
+                print "Agree friend %s Video success" % friend
+                return True
+            else:
+                self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
+                print "Agree friend %s Video failed" % friend
+                return False
+        except Exception, error:
+            self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
+            print "Agree friend %s Video failed" % friend, error
+            return False
+
+    def refuseVideo(self,friend):
+        funname = sys._getframe().f_code.co_name
+        try:
+            time.sleep(2)
+            #WebDriverWait(self.driver, 20).until(
+            #    lambda x: x.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i")).click()
+            self.driver.find_element_by_xpath("//div[@class='x-chat']/div[4]/div/i").click()
+            time.sleep(1)
+            self.screenshot("%s_%s_Pass.png" % (funname, time.strftime('%H_%M_%S')))
+            try:
+                if self.driver.find_element_by_xpath("//video[@class='corner']"):
+                    print "refuse friend %s Video failed" % friend
+                    return False
+            except NoSuchElementException:
+                print "refuse friend %s Video success" % friend
+                return True
+        except Exception, error:
+            self.screenshot("%s_%s_Failed.png" % (funname, time.strftime('%H_%M_%S')))
+            print "invite friend %s Video failed" % friend, error
