@@ -1,7 +1,9 @@
 #coding= utf-8
 import sys,os
 os.system("rm -f %s/errorpng/*" %os.getcwd())
-#os.system("rm -f %s/logs/*" %os.getcwd())
+url = sys.argv[1]
+os.system("python config.py %s" %url)
+
 import HTMLTestRunner as htr
 import unittest
 from execute_friend import TestFriendChat
